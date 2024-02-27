@@ -23,12 +23,12 @@ export const useStatragiesForLosingWeight = defineStore("losingStratagies",()=>{
             { id: 4, text: "Weight loss programs", selected: ref(false) },
             { id: 5, text: "weight loss medications", selected: ref(false) },
             { id: 6, text: "Meal replacements and shakes", selected: ref(false) },
-            { id: 7, text: "Other", selected: ref(false) },
             {
-              id: 8,
+              id: 7,
               text: "I haven't tried to lose weight",
               selected: ref(false),
             },
+            { id: 8, text: "other", selected: ref(false) },
           ],
         },
         

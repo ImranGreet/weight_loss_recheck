@@ -1,7 +1,8 @@
 <template>
     <section class="w-full">
       <div class="w-full h-full flex flex-col justify-center items-center">
-        <form @submit.prevent="submitData()" class="w-full px-2 sm:px-0  mx-auto">
+        <form @submit.prevent="submitData()" class="w-full p-2  mx-auto"
+        :class="{'bg-red-100':showError,'bg-blue-50':selected}">
           <div class="space-y-2 prose max-w-none w-full">
             <h3>
               Are you taking any other medications, including GLP-1s, e.g.
@@ -10,6 +11,7 @@
             <div class="flex flex-row-reverse justify-end items-center w-full ">
               <label for="yes" class="ml-3">Yes</label>
               <input
+              @change="store.selectOption(selected)"
                 type="radio"
                 name="goalWeight"
                 id="yes"
@@ -21,6 +23,7 @@
             <div class="flex flex-row-reverse justify-end items-center w-full ">
               <label for="yes" class="ml-3">No</label>
               <input
+              @change="store.selectOption(selected)"
                 type="radio"
                 name="goalWeight"
                 id="yes"
@@ -39,24 +42,17 @@
   
   <script>
   import { ref } from "vue";
-  import { useRouter } from "vue-router";
+ 
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
+import {useGLPMedicationReport} from "../../store/step15"
+import { storeToRefs } from 'pinia';
  
   
   export default {
     name: "Step15",
     setup() {
-      const routes = useRouter();
-      const selected = ref(false);
-  
-      const selectOption = function (option) {
-        selected.value = option;
-        if (selected.value) {
-          routes.push({ name: "quiz19" });
-        } else {
-          routes.push({ name: "quiz20" });
-        }
-      };
+       const {selected,showError,selectOption} = storeToRefs(useGLPMedicationReport());
+       const store = useGLPMedicationReport();
       const submitData = function () {
         compoentToBeRender(17);
         
@@ -64,7 +60,9 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
       return {
         selected,
         selectOption,
-        submitData
+        store,
+        showError,selectOption,
+        submitData,
       };
     },
   };

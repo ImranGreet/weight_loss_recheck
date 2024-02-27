@@ -1,6 +1,6 @@
 <template>
     <section class="w-full">
-      <div class="w-full h-full flex flex-col justify-center items-center">
+      <div class="w-full h-full flex flex-col justify-center items-center bg-yellow-500">
         <form @submit.prevent="submitData()"
           class="w-full px-2 sm:p-5 rounded-lg flex flex-col justify-start items-start mx-auto"
         >
@@ -38,7 +38,7 @@
   import { ref, computed } from "vue";
   
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
-import {useStatragiesInPastForLosingWeight} from "../../store/step10"
+import {useChallengesForLosingWeight} from "../../store/step10"
 import { storeToRefs } from "pinia";
   
   export default {
@@ -46,8 +46,8 @@ import { storeToRefs } from "pinia";
     setup() {
      
       
-  const {questions,toggleCheckbox} = storeToRefs(useStatragiesInPastForLosingWeight());
-  const store = useStatragiesInPastForLosingWeight();
+  const {questions,toggleCheckbox,otherSelection,selectedReasons,errorSign,othersInfo} = storeToRefs(useChallengesForLosingWeight());
+  const store = useChallengesForLosingWeight();
       const currentQuestionIndex = ref(0);
 
       const submitData = function () {
@@ -60,7 +60,8 @@ import { storeToRefs } from "pinia";
         currentQuestion: questions.value[currentQuestionIndex.value],
        
         toggleCheckbox,
-        
+        otherSelection,selectedReasons,errorSign,othersInfo,
+        store,
         submitData
       };
     },

@@ -1,120 +1,126 @@
 <template>
-    <section class="w-full">
-      <form @submit.prevent="submitData()" class="w-full h-full flex flex-col justify-center items-center">
-        <div
-          class="w-full px-2 sm:px-0  flex flex-col justify-center items-center mx-auto"
-        >
-          <div class="space-y-6 prose max-w-none w-full">
-            <h3>{{ currentQuestion.text }}</h3>
-            <div
-              v-for="reason in currentQuestion.reasons"
-              :key="reason.id"
-              class="flex items-center space-x-2 cursor-pointer"
-              @click="toggleCheckbox(reason)"
-            >
-              <input
-                type="checkbox"
-                :id="`reason-${reason.id}`"
-                v-model="reason.selected"
-                class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
-              />
-              <label
-                :for="`reason-${reason.id}`"
-                class="text-lg"
-                @click="toggleCheckbox(reason)"
-              >
-                {{ reason.text }}
-              </label>
-            </div>
+  <section class="w-full">
+    <div class="w-full h-full flex flex-col justify-start items-start">
+      <form
+        @submit.prevent="submitData()"
+        class="w-full px-2 sm:p-5 rounded-lg flex flex-col justify-start items-start mx-auto"
+        :class="{
+          'bg-red-100': pageErrorMarking,
+          'bg-blue-50': selectedReasons.length > 0,
+        }"
+      >
+        <div class="space-y-6 prose max-w-none w-full">
+          <h3 class="after-content">
+            {{ currentQuestion.text }}
+          </h3>
+          <div
+            v-for="reason in currentQuestion.reasons"
+            :key="reason.id"
+            class="flex items-center space-x-2 cursor-pointer"
             
+          >
+            <input
+              type="checkbox"
+              :id="`reason-${reason.id}`"
+              v-model="reason.selected"
+              class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
+              @click="store.toggleCheckbox(reason)"
+            />
+            <label
+              :for="`reason-${reason.id}`"
+              class="text-base"
+              @click="store.toggleCheckbox(reason)"
+            >
+              {{ reason.text }}
+            </label>
+          </div>
+          <div
+            :class="{
+              hidden: !otherSelection,
+              block: otherSelection,
+            }"
+          >
+            <input
+              type="text"
+              id=""
+              v-model="othersInfo"
+              class="w-full px-4 py-2 rounded-md placeholder:text-blue-700 placeholder:font-semibold focus:outline-none border border-gray-100"
+              placeholder="Please type another option here"
+            />
+            <p
+              v-if="otherSelection && othersInfo.trim() === ''"
+              class="bg-red-400 inline-block px-3 py-0.5 text-white rounded-lg"
+            >
+              <span
+                class="w-5 h-5 text-gray-800 inline-flex justify-center items-center rounded-full bg-white"
+                >!</span
+              >
+              This is field is required
+            </p>
           </div>
         </div>
-        <div class="w-full h-3"></div>
-        <globalForm/>
+        <div class="w-full mt-2"></div>
+        <globalForm />
       </form>
-    </section>
-  </template>
+    </div>
+  </section>
+</template>
   
   <script>
-  import { ref, computed } from "vue";
-  import { useRouter } from "vue-router";
-import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
-  
-  export default {
-    name: "Step17",
-    setup() {
-      const routes = useRouter();
-      const questions = ref([
-        {
-          id: 1,
-          text: "When considering treatment options, which of the following are important to you?",
-          reasons: [
-            {
-              id: 1,
-              text: "I want to minimise the risk of common side effects, e.g., nausea",
-              selected: ref(false),
-            },
-            {
-              id: 2,
-              text: "I want to maximise my results",
-              selected: ref(false),
-            },
-            {
-              id: 3,
-              text: "I want an easy and convenient option",
-              selected: ref(false),
-            },
-            {
-              id: 4,
-              text: "I want something that helps me stay consistent",
-              selected: ref(false),
-            },
-            { id: 5, text: "None of the above", selected: ref(false) },
-          ],
-        },
-      ]);
-  
-      const currentQuestionIndex = ref(0);
-  
-      const toggleCheckbox = (reason) => {
-        reason.selected = !reason.selected;
-      };
-  
-      const continueToNextStep = () => {
-        routes.push({ name: "agree" });
-        if (currentQuestionIndex.value < questions.value.length - 1) {
-          currentQuestionIndex.value++;
-        }
-      };
-  
-      const anyReasonSelected = computed(() => {
-        return questions.value[currentQuestionIndex.value].reasons.some(
-          (reason) => reason.selected
-        );
-      });
+import { storeToRefs } from "pinia";
 
-      const submitData = function () {
-        compoentToBeRender(19);
-        
-        
-      };
-  
-      return {
-        currentQuestion: questions.value[currentQuestionIndex.value],
-        continueToNextStep,
-        toggleCheckbox,
-        anyReasonSelected,
-        submitData
-      };
-    },
-  };
-  </script>
+
+import { ref } from "vue";
+import { useConsederingTreatment } from "../../store/step17";
+import {compoentToBeRender, validationError} from "../../scripts/functional_quiz/renderCompos"
+
+export default {
+  name: "Step1",
+
+  setup() {
+    const store = useConsederingTreatment();
+    const pageErrorMarking = ref(false);
+
+    const {
+      questions,
+      selectedReasons,
+      otherSelection,
+      errorSign,
+      currentQuestionIndex,
+      toggleCheckbox,
+      othersInfo,
+    } = storeToRefs(useConsederingTreatment());
+
+    const submitData = function () {
+      
+      if (selectedReasons.value.length === 0 || otherSelection.value === true) {
+        pageErrorMarking.value = true;
+        return;
+      }
+      compoentToBeRender(19);
+    
+    };
+
+    return {
+      currentQuestion: questions.value[currentQuestionIndex.value],
+      toggleCheckbox,
+      validationError,
+      selectedReasons,
+      otherSelection,
+      errorSign,
+      store,
+      othersInfo,
+      pageErrorMarking,
+      submitData,
+     
+    };
+  },
+};
+</script>
   
   <style>
-  .form-checkbox:checked {
-    color: #f76d57; /* Customize the color of the checkmark when checked */
-  }
-  .focus\:ring-primary-dark:focus {
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5); /* Customize the focus ring color */
-  }
-  </style>
+.focus\:ring-primary-dark:focus {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5);
+}
+</style>
+  
