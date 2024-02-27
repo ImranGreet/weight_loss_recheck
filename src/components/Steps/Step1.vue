@@ -17,7 +17,7 @@
               v-for="reason in currentQuestion.reasons"
               :key="reason.id"
               class="flex items-center space-x-2 cursor-pointer"
-              @click="store.toggleCheckbox(reason)"
+             
             >
               <input
                 type="checkbox"
