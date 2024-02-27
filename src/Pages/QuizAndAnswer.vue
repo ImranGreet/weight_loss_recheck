@@ -14,7 +14,7 @@ import Step6 from '../components/Steps/Step6.vue';
 import Step7 from '../components/Steps/Step7.vue';
 import Step8 from '../components/Steps/Step8.vue';
 import Step9 from '../components/Steps/Step9.vue';
-// import Step10 from '../components/Steps/Step10.vue';
+ import Step10 from '../components/Steps/Step10.vue';
 import Step11 from '../components/Steps/Step11.vue';
 import Step12 from '../components/Steps/Step12.vue';
 import Step13 from '../components/Steps/Step13.vue';
@@ -26,6 +26,7 @@ import Step18 from '../components/Steps/Step18.vue';
 import Step19 from '../components/Steps/Step19.vue';
 import Step20 from '../components/Steps/Step20.vue';
 import Step21 from '../components/Steps/Step21.vue';
+import Assesment from '../components/Steps/Assesment.vue';
 
 /*scripts*/
 import {rendredCompo,compoentToBeRender} from "../scripts/functional_quiz/renderCompos"
@@ -33,7 +34,7 @@ import {rendredCompo,compoentToBeRender} from "../scripts/functional_quiz/render
 
 export default {
 name:"QuizAndAnswer",
-components:{Greeting,Requirments,Step1,Step2,Step3,Step4,Step5,Step6,Step7,Step8,Step9,Step11,Step12,Step13,Step14,Step15,Step16,Step17,Step18,Step19,Step20,Step21},
+components:{Greeting,Requirments,Step1,Step2,Step3,Step4,Step5,Step6,Step7,Step8,Step9,Step10,Step11,Step12,Step13,Step14,Step15,Step16,Step17,Step18,Step19,Step20,Step21,Assesment},
 setup(){
     const componentsToRender = [
   'Greeting',
@@ -47,7 +48,7 @@ setup(){
   'Step7',
   'Step8',
   'Step9',
-  
+  'Step10',
   'Step11',
   'Step12',
   'Step13',
@@ -58,7 +59,8 @@ setup(){
   'Step18',
   'Step19',
   'Step20',
-  'Step21'
+  'Step21',
+  "Assesment"
 ];
 
     return {

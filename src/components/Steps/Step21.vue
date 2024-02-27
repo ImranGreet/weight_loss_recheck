@@ -97,7 +97,7 @@ export default {
         pageErrorMarking.value = true;
         return;
       }
-      compoentToBeRender(3);
+      compoentToBeRender(23);
     
     };
 
