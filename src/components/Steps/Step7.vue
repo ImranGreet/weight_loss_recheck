@@ -1,7 +1,8 @@
 <template>
     <section class="w-full">
       <div class="w-full h-full flex flex-col justify-center items-center">
-        <form @submit.prevent="submitData()" class="w-full px-2 sm:px-0  mx-auto">
+        <form @submit.prevent="submitData()" class="w-full p-2  mx-auto"
+        :class="{'bg-red-100':showError,'bg-blue-50':decision}">
           <div class="mt-6 space-y-4">
             <p>
               Our program contains medication that isn’t suitable for pregnant
@@ -16,7 +17,7 @@
                 name="goalWeight"
                 id="yes"
                 class="px-2 py-3 w-6 h-6 accent-gray-500/20"
-                v-model="selectedOption"
+                v-model="decision"
                 value="understand"
               />
             </div>
@@ -27,7 +28,7 @@
                 name="goalWeight"
                 id="no"
                 class="px-2 py-3 w-6 h-6 accent-gray-500/20"
-                v-model="selectedOption"
+                v-model="decision"
                 value="I don’t wish to continue"
               />
             </div>
@@ -40,35 +41,32 @@
   </template>
   
   <script>
-  import { ref, watch } from "vue";
-  import { useRouter } from "vue-router";
+  
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
+import {usePregnantWomenReport} from "../../store/step6"
+import { storeToRefs } from 'pinia';
  
   
   export default {
-    name: "QuizEight",
+    name: "Step7",
     setup() {
-      const routes = useRouter();
-      const decision = ref(null);
-  
-      const handleDecision = function (option) {
-        decision.value = option;
-  
-        if (decision.value === "understand") {
-          routes.push({ name: "quizNine" });
-        } else {
-         
-        }
-      };
+     const {decision,handleDecision,showError} = storeToRefs(usePregnantWomenReport());
+     const store = usePregnantWomenReport();
 
       const submitData = function () {
-        compoentToBeRender(9);
+        if(decision.value){
+          compoentToBeRender(9);
+        }else{
+          showError.value =true
+        }
       };
   
       return {
         decision,
         handleDecision,
-        submitData
+        submitData,
+        store,
+        showError
       };
     },
   };

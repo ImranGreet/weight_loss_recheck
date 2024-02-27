@@ -13,9 +13,12 @@ export const useApplicantSexAndRegion = defineStore("applicantSexAndRegion",()=>
         sex.value = option;
         
       };
+      const showError = ref(false);
+      
     return {
         sex,
         outOfDefault,
+        showError,
         selectRegion,
         toggleSex
     }

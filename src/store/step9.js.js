@@ -3,6 +3,11 @@ import { ref } from "vue";
 
 
 export const useStatragiesForLosingWeight = defineStore("losingStratagies",()=>{
+  const selectedReasons = ref([]);
+  const otherSelection = ref(false);
+  let errorSign = ref(false);
+  let othersInfo = ref("");
+
     const questions = ref([
         {
           id: 1,
@@ -30,10 +35,26 @@ export const useStatragiesForLosingWeight = defineStore("losingStratagies",()=>{
       ]);
       const toggleCheckbox = (reason) => {
         reason.selected = !reason.selected;
+        if (!selectedReasons.value.includes(reason.text)) {
+          selectedReasons.value.push(reason.text);
+        } else if (selectedReasons.value.includes(reason.text)) {
+          selectedReasons.value = selectedReasons.value.filter(
+            (item) => item !== reason.text,
+          );
+        }
+        if (selectedReasons.value.includes("other")) {
+          otherSelection.value = true;
+        } else {
+          otherSelection.value = false;
+        }
       };
 
       return {
         questions,
+        selectedReasons,
+        otherSelection,
+        errorSign,
+        othersInfo,
         toggleCheckbox
       }
 });

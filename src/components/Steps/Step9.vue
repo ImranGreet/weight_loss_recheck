@@ -2,7 +2,11 @@
     <section class="w-full">
       <div class="w-full h-full flex flex-col justify-center items-center">
         <form @submit.prevent="submitData()"
-          class="w-full px-2 sm:p-5 rounded-lg flex flex-col justify-start items-start mx-auto"
+          class="w-full p-2 rounded-lg flex flex-col justify-start items-start mx-auto"
+          :class="{
+            'bg-red-100': pageErrorMarking,
+            'bg-blue-50': selectedReasons.length > 0,
+          }"
         >
           <div class="space-y-4 prose max-w-none w-full">
             <h3 class="after-content">{{ currentQuestion.text }}</h3>
@@ -46,15 +50,21 @@ import { storeToRefs } from "pinia";
     name: "Step9",
     setup() {
      
-      const {questions,toggleCheckbox} = storeToRefs(useStatragiesForLosingWeight());
+      const {questions,toggleCheckbox,selectedReasons,otherSelection,othersInfo,errorSign} = storeToRefs(useStatragiesForLosingWeight());
 
       const store = useStatragiesForLosingWeight();
+      const pageErrorMarking = ref(false);
   
       const currentQuestionIndex = ref(0);
   
     
 
       const submitData = function () {
+
+        if (selectedReasons.value.length === 0 || otherSelection.value === true) {
+          pageErrorMarking.value = true;
+          return;
+        }
         compoentToBeRender(11);
         
         
@@ -65,6 +75,8 @@ import { storeToRefs } from "pinia";
         toggleCheckbox,
         store,
         questions,
+        othersInfo,errorSign,
+        selectedReasons,
         submitData
       };
     },

@@ -1,7 +1,8 @@
 <template>
     <section class="w-full">
-      <div class="w-full h-full flex flex-col justify-center items-center">
-        <form @submit.prevent="submitData()" class="w-full px-2 sm:px-0  mx-auto space-y-4">
+      <div class="w-full h-full flex flex-col justify-center items-center ">
+        <form @submit.prevent="submitData()" class="w-full p-2   mx-auto space-y-4"
+        :class="{'bg-red-100':showError,'bg-blue-50':outOfDefault && sex }">
           <div class="prose max-w-none">
             <h3>Are you from any of the following ethnic groups</h3>
             <ul class="list-none">
@@ -69,13 +70,13 @@
   
   <script> 
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
-import {useApplicantSexAndRegion} from "../../store/sexRegion"
+import {useApplicantSexAndRegion} from "../../store/step5"
 import { storeToRefs } from 'pinia';
   
   export default {
     name: "Step5",
     setup() {
-      const {sex,outOfDefault,toggleSex,selectRegion} = storeToRefs(useApplicantSexAndRegion());
+      const {sex,outOfDefault,toggleSex,selectRegion,showError} = storeToRefs(useApplicantSexAndRegion());
       ;
      
       const store = useApplicantSexAndRegion();
@@ -83,8 +84,12 @@ import { storeToRefs } from 'pinia';
       
 
       const submitData = function () {
+        if(sex.value && outOfDefault.value){
+          compoentToBeRender(7);
+        }else{
+          showError.value =true
+        }
         
-        compoentToBeRender(7);
       
       };
   
@@ -94,6 +99,7 @@ import { storeToRefs } from 'pinia';
         selectRegion,
         toggleSex,
         submitData,
+        showError,
         store
       };
     },

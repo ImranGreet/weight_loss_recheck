@@ -2,7 +2,8 @@
     <section class="w-full">
       <div class="w-full h-full flex flex-col justify-center items-center">
         <form @submit.prevent="submitData()"
-          class="w-full px-2 sm:px-0  flex flex-col justify-center items-center mx-auto"
+          class="w-full px-2   flex flex-col justify-center items-center mx-auto"
+          :class="{'bg-red-100':showError,'bg-blue-50':pregnacnyOrHaveChild}"
         >
           <div class="space-y-6 prose max-w-none w-full">
             <h3>Are you pregnant, breastfeeding, or trying to conceive?</h3>
@@ -44,7 +45,7 @@
   import { ref } from "vue";
   
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
-import {usePregnantWomenReport} from "../../store/Pregnant"
+import {usePregnantWomenReport} from "../../store/step6"
 import { storeToRefs } from "pinia";
   
   export default {
@@ -52,11 +53,16 @@ import { storeToRefs } from "pinia";
   
     setup() {
 
-      const {pregnacnyOrHaveChild,toggleSelectStates} = storeToRefs(usePregnantWomenReport());
+      const {pregnacnyOrHaveChild,toggleSelectStates,showError} = storeToRefs(usePregnantWomenReport());
       const store = usePregnantWomenReport();
       
       const submitData = function () {
-        compoentToBeRender(8);
+        if(pregnacnyOrHaveChild.value ){
+          compoentToBeRender(8);
+        }else{
+          showError.value = true
+        }
+        
         
       };
   
@@ -65,7 +71,8 @@ import { storeToRefs } from "pinia";
         toggleSelectStates,
         submitData,
         pregnacnyOrHaveChild,
-        store
+        store,
+        showError
       
       };
     },

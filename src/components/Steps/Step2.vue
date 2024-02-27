@@ -3,7 +3,8 @@
       <div class="w-full h-full flex flex-col justify-center items-center">
         <form 
         @submit.prevent="submitData()"
-          class="w-full px-2 sm:px-0  flex flex-col justify-center  mx-auto"
+          class="w-full p-2   flex flex-col justify-center  mx-auto"
+          :class="{'bg-red-100':height===0 || weight===0 || weightError.length>0}"
         >
           <div class="space-y-5 prose max-w-none w-full">
             <h3>{{ question }}</h3>

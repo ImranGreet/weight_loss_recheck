@@ -3,7 +3,8 @@
       <div class="w-full h-full flex flex-col justify-center items-center ">
         <form
         @submit.prevent="submitData()"
-          class="w-full px-2 sm:p-5 rounded-lg flex flex-col justify-start items-start mx-auto"
+          class="w-full p-2 rounded-lg flex flex-col justify-start items-start mx-auto"
+          :class="{'bg-red-100':showError}"
         >
           <div class="space-y-2 prose max-w-none w-full">
             <h3>{{ currentQuestion.text }}</h3>
@@ -12,7 +13,7 @@
               :key="option.id"
               class="flex items-center space-x-2 cursor-pointer p-4 rounded-lg"
              
-              @click="toggleOption(option)"
+              @click="store.toggleOption(option)"
             >
               <input
                 type="radio"
@@ -36,48 +37,25 @@
   
   <script>
   import { ref, onMounted } from "vue";
-  import { useRouter } from "vue-router";
+
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
+
+import {useStruggledForLosingWeight} from "../../store/step8"
+import { storeToRefs } from 'pinia';
   
   export default {
-    name: "QuizeNine",
+    name: "Step8",
     setup() {
-      const routes = useRouter();
-      const questions = ref([
-        {
-          id: 1,
-          text: "How long have you struggled with your weight?",
-          options: [
-            { id: 1, text: "Last 12 months" },
-            { id: 2, text: "Last 5 years" },
-            { id: 3, text: "Last 10 years" },
-            { id: 4, text: "Most of my life" },
-            {
-              id: 5,
-              text: "I’ve never struggled with my weight",
-            },
-          ],
-          selectedOption: null,
-        },
-      ]);
+     
+    
+   const {questions,selectedOption,showError,toggleOption} = storeToRefs(useStruggledForLosingWeight());
+
+   const store = useStruggledForLosingWeight();
   
       const currentQuestionIndex = ref(0);
   
-      const toggleOption = (option) => {
-        questions.value[currentQuestionIndex.value].selectedOption = option.id;
-        continueToNextStep();
-      };
+      
   
-      const continueToNextStep = () => {
-        const selectedOptionId =
-          questions.value[currentQuestionIndex.value].selectedOption;
-  
-        if (selectedOptionId !== null) {
-          routes.push({ name: "quizeTen" });
-        } else {
-          console.error("Please select an option before continuing.");
-        }
-      };
   
       onMounted(() => {
         questions.value[currentQuestionIndex.value].selectedOption =
@@ -92,7 +70,10 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
       return {
         currentQuestion: questions.value[currentQuestionIndex.value],
         toggleOption,
-        submitData
+        submitData,
+        selectedOption,
+        store,
+        showError
       };
     },
   };

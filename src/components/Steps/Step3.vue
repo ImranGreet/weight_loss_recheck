@@ -3,7 +3,9 @@
     <div class="w-full h-full flex flex-col justify-center items-center">
       <form
         @submit.prevent="submitData()"
-        class="w-full px-2 sm:px-0  flex flex-col justify-center items-center mx-auto"
+        class="w-full p-2  flex flex-col justify-center items-center mx-auto"
+        :class="{'bg-red-100':showerror}"
+        
       >
         <div class="space-y-6 prose max-w-none w-full">
           <h3>Do you have a goal weight you would like to achieve?</h3>
@@ -11,6 +13,7 @@
           <div class="flex flex-row-reverse justify-end items-center w-full">
             <label for="yes" class="ml-3"> yes</label>
             <input
+            @change="store.toggleRadio(haveTarget)"
               type="radio"
               name="goalWeight"
               id="yes"
@@ -22,6 +25,7 @@
           <div class="flex flex-row-reverse justify-end items-center w-full">
             <label for="no" class="ml-3"> no</label>
             <input
+            @change="store.toggleRadio(haveTarget)"
               type="radio"
               name="goalWeight"
               id="no"
@@ -43,7 +47,7 @@
   import { ref } from "vue";
  
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
-import { useApplicantHeightWeight } from '../../store/stepTwo';
+import { useApplicantTargetWeight } from '../../store/step3';
 import { storeToRefs } from 'pinia';
 
 
@@ -52,20 +56,21 @@ import { storeToRefs } from 'pinia';
     name: "Step3",
   
     setup() {
-     const {haveTarget} = storeToRefs(useApplicantHeightWeight())
+     const {haveTarget,toggleRadio,showerror} = storeToRefs(useApplicantTargetWeight())
    
-  
+  const store = useApplicantTargetWeight();
      
   
-      const toggleRadio = (value) => {
-        haveTarget.value = value;
     
-      };
 
       const submitData = function () {
         
-        
-        compoentToBeRender(5);
+        if(haveTarget.value){
+          compoentToBeRender(5);
+        }else{
+          showerror.value =true
+        }
+          
         
         
       
@@ -73,10 +78,12 @@ import { storeToRefs } from 'pinia';
   
       return {
         
-        toggleRadio,
+        store,
         compoentToBeRender,
         submitData,
-        haveTarget
+        toggleRadio,
+        haveTarget,
+        showerror
        
       };
     },

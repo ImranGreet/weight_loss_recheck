@@ -3,7 +3,8 @@
       <div class="w-full h-full flex flex-col justify-center items-center">
         <form
         @submit.prevent="submitData()"
-          class="w-full px-2 sm:px-0  flex flex-col justify-center items-center mx-auto"
+          class="w-full p-2 sm:px-0  flex flex-col justify-center items-center mx-auto"
+          :class="{'bg-red-100':showError}"
         >
           <div class="space-y-6 prose max-w-none w-full">
             <h3>{{ question }}</h3>
@@ -34,7 +35,7 @@
   <script>
   import { ref, onMounted } from "vue";
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
-import { useApplicantHeightWeight } from '../../store/stepTwo';
+import { useApplicantWeightTarget } from '../../store/step4';
 import { storeToRefs } from 'pinia';
 
   
@@ -42,7 +43,7 @@ import { storeToRefs } from 'pinia';
     name: "Step4",
     setup() {
       
-  const {applicantTarget} = storeToRefs(useApplicantHeightWeight());
+  const {applicantTarget,showError} = storeToRefs(useApplicantWeightTarget());
 
       let question = "What is your goal weight?";
      
@@ -78,6 +79,7 @@ import { storeToRefs } from 'pinia';
           goalWeightError.value = goalWeightError.value;
           hasErrors.value = hasErrors.value;
         }
+        
       };
   
       let isAllowedToAdmin = function () {
@@ -93,11 +95,15 @@ import { storeToRefs } from 'pinia';
      
 
       const submitData = function () {
-        
-        if(isAllowedToAdmin()){
-
+        if(applicantTarget.value !==0){
+          if(isAllowedToAdmin()){
           compoentToBeRender(6);
         }
+        }else if(applicantTarget.value ===0){
+          showError.value ===true
+        }
+       
+       
         
         
       
@@ -105,7 +111,7 @@ import { storeToRefs } from 'pinia';
   
       return {
         question,
-       
+        showError,
         goalWeightError,
         switchToStone,
         hasErrors,
