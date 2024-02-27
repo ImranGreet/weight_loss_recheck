@@ -7,5 +7,8 @@ const compoentToBeRender = function (compoNumber) {
     rendredCompo.value =compoNumber
     return rendredCompo;
 }
-
-export {rendredCompo,validationError,compoentToBeRender}
+const gotoPreviusPage = function(){
+    rendredCompo.value --;
+    return rendredCompo;
+}
+export {rendredCompo,validationError,compoentToBeRender,gotoPreviusPage}

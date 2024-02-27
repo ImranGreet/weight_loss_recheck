@@ -4,8 +4,8 @@
     >
       <div class="w-full  mx-auto bg-primary/15">
         <div class="w-full text-center">
-          <div class="flex flex-col justify-center items-center gap-y-4 py-8">
-            <div class="w-full prose texr-center">
+          <div class="flex flex-col justify-center items-center gap-y-2 py-4">
+            <div class="w-full prose text-center max-w-none ">
               <h3>Your assessment</h3>
               <div class="w-full flex flex-col justify-center items-center">
                 <div>

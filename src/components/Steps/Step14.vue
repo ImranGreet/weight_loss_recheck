@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="flex flex-row-reverse justify-end items-center w-full">
-                  <label for="yes" class="ml-3"> yes</label>
+                  <label for="yes" class="ml-3">no</label>
                   <input
                     type="radio"
                     name="goalWeight"
