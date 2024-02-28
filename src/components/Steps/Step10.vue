@@ -10,7 +10,7 @@
               v-for="reason in currentQuestion.reasons"
               :key="reason.id"
               class="flex items-center space-x-2 cursor-pointer"
-              @click="toggleCheckbox(reason)"
+              @click="store.toggleCheckbox(reason)"
             >
               <input
                 type="checkbox"
@@ -20,10 +20,35 @@
               <label
                 :for="`reason-${reason.id}`"
                 class="text-lg"
-                @click="toggleCheckbox(reason)"
+                @click="store.toggleCheckbox(reason)"
               >
                 {{ reason.text }}
               </label>
+            </div>
+
+            <div
+              :class="{
+                hidden: !otherSelection,
+                block: otherSelection,
+              }"
+            >
+              <input
+                type="text"
+                id=""
+                v-model="othersInfo"
+                class="w-full px-4 py-2 rounded-md placeholder:text-blue-700 placeholder:font-semibold focus:outline-none border border-gray-100"
+                placeholder="Please type another option here"
+              />
+              <p
+                v-if="otherSelection && othersInfo.trim() === ''"
+                class="bg-red-400 inline-block px-3 py-0.5 text-white rounded-lg"
+              >
+                <span
+                  class="w-5 h-5 text-gray-800 inline-flex justify-center items-center rounded-full bg-white"
+                  >!</span
+                >
+                This is field is required
+              </p>
             </div>
             
           </div>
@@ -51,7 +76,7 @@ import { storeToRefs } from "pinia";
       const currentQuestionIndex = ref(0);
 
       const submitData = function () {
-        compoentToBeRender(12);
+        compoentToBeRender(13);
         
         
       };

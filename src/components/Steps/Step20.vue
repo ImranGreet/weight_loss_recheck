@@ -21,7 +21,8 @@
             <form @submit.prevent="submitData()">
               <div class="px-3 space-y-4">
                 <textarea
-                  v-model="userAnswer"
+                  @input="store.getTheAnswer(userAnswerInput)"
+                  v-model="userAnswerInput"
                   placeholder="Type Your Answer Here .."
                   class="w-full p-2 border border-gray-400 rounded-md"
                   rows="4"
@@ -49,14 +50,18 @@
   
   <script>
   import { ref } from "vue";
-  import { useRouter } from "vue-router";
+
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
+import {usePatientInvoiceDocs} from "../../store/step20"
+import { storeToRefs } from 'pinia';
   
   export default {
     name: "Step20",
     setup() {
-      const routes = useRouter();
-      const userAnswer = ref("");
+     const {userAnswerInput,getTheAnswer,showerror} = storeToRefs(usePatientInvoiceDocs());
+     const store = usePatientInvoiceDocs();
+
+    
       const invoiceOrDoc = ref(null);
   
       const uploadInvoiceOrPhoto = function (event) {
@@ -70,8 +75,8 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 
   
       return {
-        userAnswer,
-        
+        userAnswerInput,getTheAnswer,showerror,
+        store,
         uploadInvoiceOrPhoto,
         invoiceOrDoc,
         submitData

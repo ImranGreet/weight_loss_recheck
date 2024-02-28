@@ -21,23 +21,25 @@
             <div class="flex flex-row-reverse justify-end items-center w-full ">
               <label for="yes" class="ml-3">Yes</label>
               <input
+              @change="store.toggleRadio(haveAllergy)"
                 type="radio"
                 name="goalWeight"
                 id="yes"
                 class="px-2 py-3 w-6 h-6 accent-gray-500"
-                v-model="selectedOption"
-                value="true"
+                v-model="haveAllergy"
+                value="yes"
               />
             </div>
             <div class="flex flex-row-reverse justify-end items-center w-full ">
               <label for="No" class="ml-3">No</label>
               <input
+              @change="store.toggleRadio(haveAllergy)"
                 type="radio"
                 name="goalWeight"
                 id="yes"
                 class="px-2 py-3 w-6 h-6 accent-gray-500"
-                v-model="selectedOption"
-                value="false"
+                v-model="haveAllergy"
+                value="no"
               />
             </div>
           </div>
@@ -49,38 +51,27 @@
   </template>
   
   <script>
-  import { onMounted, onUnmounted, ref } from "vue";
-  import { useRouter } from "vue-router";
+import { storeToRefs } from 'pinia';
+
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
  
-  
+  import {useApplicantAllergicToSpecificDrug} from "../../store/step18"
   export default {
     name: "Step18",
   
     setup() {
       
-      const routes = useRouter();
-  
-      const naviagteToPage = function () {
-        if (selectedOption.value === "true") {
-          
-        } else {
-          routes.push({ name: "quiz22" });
-        }
-      };
-  
-      const selectedOption = ref("true");
-  
-      const toggleRadio = (value) => {
-        selectedOption.value = value;
-      };
+      const {haveAllergy,showerror,toggleRadio} = storeToRefs(useApplicantAllergicToSpecificDrug());
+  const store = useApplicantAllergicToSpecificDrug();
+      
       const submitData = function () {
         compoentToBeRender(20);
       };
   
       return {
-        selectedOption,
-        naviagteToPage,
+        store,
+        haveAllergy,
+        showerror,
         toggleRadio,
         submitData
       };

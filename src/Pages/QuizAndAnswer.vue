@@ -14,7 +14,7 @@ import Step6 from '../components/Steps/Step6.vue';
 import Step7 from '../components/Steps/Step7.vue';
 import Step8 from '../components/Steps/Step8.vue';
 import Step9 from '../components/Steps/Step9.vue';
- import Step10 from '../components/Steps/Step10.vue';
+import Step10 from '../components/Steps/Step10.vue';
 import Step11 from '../components/Steps/Step11.vue';
 import Step12 from '../components/Steps/Step12.vue';
 import Step13 from '../components/Steps/Step13.vue';

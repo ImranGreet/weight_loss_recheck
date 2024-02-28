@@ -21,7 +21,7 @@ export const useChallengesForLosingWeight = defineStore("losingChallenges",()=>{
             { id: 2, text: "I find it difficult to be consistent", selected: ref(false) },
             { id: 3, text: "I do not have enough time", selected: ref(false) },
             { id: 4, text: "I lose weight then put it back on", selected: ref(false) },
-            { id: 5, text: "others", selected: ref(false) },
+            { id: 5, text: "other", selected: ref(false) },
            
           ],
         },

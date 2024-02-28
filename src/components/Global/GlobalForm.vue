@@ -5,6 +5,7 @@
     >
       <button
        @click="gotoPreviusPage()"
+       type="button"
         class="px-5 py-1 lg:px-10 lg:py-3 rounded-lg bg-gray-400 hover:bg-gray-600 text-white shadow-sm"
       
       >

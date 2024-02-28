@@ -84,9 +84,15 @@ import { storeToRefs } from 'pinia';
       
 
       const submitData = function () {
-        if(sex.value && outOfDefault.value){
+        if(sex.value==='female'  && outOfDefault.value){
+
           compoentToBeRender(7);
-        }else{
+
+        }else if(sex.value==='male'  && outOfDefault.value){
+          compoentToBeRender(9);
+        }
+        
+        else{
           showError.value =true
         }
         

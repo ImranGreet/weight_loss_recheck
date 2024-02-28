@@ -7,23 +7,26 @@
             <div class="flex flex-row-reverse justify-end items-center w-full ">
               <label for="yes" class="ml-3">Yes</label>
               <input
+              @change="store.toggleRadio(haveAllergy)"
                 type="radio"
                 name="goalWeight"
                 id="yes"
                 class="px-2 py-3 w-6 h-6 accent-gray-500"
-                v-model="selected"
-                value="true"
+                v-model="haveAllergy"
+                value="yes"
               />
             </div>
             <div class="flex flex-row-reverse justify-end items-center w-full ">
               <label for="yes" class="ml-3">No</label>
               <input
+              @change="store.toggleRadio(haveAllergy)"
                 type="radio"
                 name="goalWeight"
                 id="yes"
                 class="px-2 py-3 w-6 h-6 accent-gray-500"
-                v-model="selected"
-                value="false"
+                v-model="haveAllergy
+                "
+                value="no"
               />
             </div>
           </div>
@@ -35,41 +38,28 @@
   </template>
   
   <script>
-  import { onMounted, onUnmounted, ref } from "vue";
-  import { useRouter } from "vue-router";
-import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
+import { storeToRefs } from 'pinia';
  
+
+import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
+ import {useApplicantAllergeticHistory} from "../../store/step16"
   
   export default {
     name: "Step16",
     setup() {
       
-  
-      const routes = useRouter();
-      const selected = ref("true");
-  
-      const handleButtonClick = function () {
-        if (selected.value === "true") {
-          routes.push({ name: "quiz21" });
-        } else {
-          routes.push({ name: "quiz23" });
-        }
-      };
-  
-      const navigateToPage = function () {
-        handleButtonClick();
-      };
-
+  const {haveAllergy,showerror,toggleRadio} = storeToRefs(useApplicantAllergeticHistory());
+  const store = useApplicantAllergeticHistory();
       const submitData = function () {
         compoentToBeRender(18);
         
       };
   
       return {
-        selected,
-        handleButtonClick,
+        haveAllergy,showerror,toggleRadio,
+        store,
         compoentToBeRender,
-        navigateToPage,
+       
         submitData
       };
     },

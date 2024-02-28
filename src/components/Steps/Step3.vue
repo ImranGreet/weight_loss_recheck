@@ -65,9 +65,13 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
         
-        if(haveTarget.value){
+        if(haveTarget.value ==='yes'){
           compoentToBeRender(5);
-        }else{
+        }else if(haveTarget.value ==='no'){
+         compoentToBeRender(6);
+        }
+        
+        else{
           showerror.value =true
         }
           
