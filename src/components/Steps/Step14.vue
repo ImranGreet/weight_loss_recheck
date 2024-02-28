@@ -15,11 +15,12 @@
                 <div class="flex flex-row-reverse justify-end items-center w-full">
                   <label for="yes" class="ml-3"> yes</label>
                   <input
+                  @change="store.toggleSelectReport(patinetRecord)"
                     type="radio"
                     name="goalWeight"
                     id="yes"
                     class="px-2 py-3 w-5 h-5 accent-gray-500/20"
-                    v-model="selected"
+                    v-model="patinetRecord"
                     value="yes"
                   />
                 </div>
@@ -27,11 +28,12 @@
                 <div class="flex flex-row-reverse justify-end items-center w-full">
                   <label for="yes" class="ml-3">no</label>
                   <input
+                  @change="store.toggleSelectReport(patinetRecord)"
                     type="radio"
                     name="goalWeight"
                     id="yes"
                     class="px-2 py-3 w-5 h-5 accent-gray-500/20"
-                    v-model="selected"
+                    v-model="patinetRecord"
                     value="no"
                   />
                 </div>
@@ -49,28 +51,20 @@
   
   <script>
   import { ref } from "vue";
-  import { useRouter } from "vue-router";
+
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
+import { usePatientMedicationReport } from "../../store/step14";
+import { storeToRefs } from "pinia";
+
 
   
   export default {
     name: "Step14",
     setup() {
-      const routes = useRouter();
-      const selected = ref(null);
-  
-      const selectOption = function (option) {
-        selected.value = option;
-        selected.value = option;
-  
-        if (selected.value) {
-          console.log(selected.value, "pop");
-          
-        } else {
-          routes.push({ name: "quiz18" });
-        }
-      };
 
+      
+  const store = usePatientMedicationReport();
+  const {patinetRecord,showerror,toggleSelectReport} = storeToRefs(usePatientMedicationReport());
       
       const submitData = function () {
         compoentToBeRender(16);
@@ -78,8 +72,8 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
       };
   
       return {
-        selected,
-        selectOption,
+        patinetRecord,showerror,toggleSelectReport,
+        store,
         submitData
       };
     },
