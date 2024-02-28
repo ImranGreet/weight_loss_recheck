@@ -30,6 +30,11 @@ export const usePatientSufferings = defineStore("patientSuffering", () => {
           text: "Chronic malabsorption syndrome",
           selected: ref(false),
         },
+        {
+          id: 14,
+          text: "None",
+          selected: ref(false),
+        },
       ],
     },
   ]);
