@@ -12,12 +12,12 @@
             Our programme combines breakthrough GLP-1 medication with health
             coaching and healthy lifestyle changes.
           </p>
-          <router-link
-            :to="{ name: 'greet' }"
-            class="bg-primary px-5 py-3 rounded-md border border-white w-full sm:w-auto no-underline"
-          >
-            Am I Eligible
-          </router-link>
+          <router-link 
+              :to="{name:'quiz'}"
+              class="bg-[#593560] text-white px-5 xl:px-10 mt-2 py-3 mb-5 sm:mb-0 rounded-full border border-white w-full sm:w-auto no-underline"
+            >
+              Am I Eligible
+            </router-link>
         </div>
       </div>
       <div class="w-full h-full flex justify-center items-center lg:pl-20">
