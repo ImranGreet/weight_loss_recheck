@@ -29,7 +29,7 @@
                 id="no"
                 class="px-2 py-3 w-6 h-6 accent-gray-500/20"
                 v-model="decision"
-                value="I don’t wish to continue"
+                value="notgot"
               />
             </div>
           </div>
@@ -42,6 +42,7 @@
   
   <script>
   
+import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import {usePregnantWomenReport} from "../../store/step6"
 import { storeToRefs } from 'pinia';
@@ -54,6 +55,10 @@ import { storeToRefs } from 'pinia';
      const store = usePregnantWomenReport();
 
       const submitData = function () {
+        if(decision.value ==='notgot'){
+          toggleRecommned();
+          return;
+        }
         if(decision.value){
           compoentToBeRender(9);
         }else{

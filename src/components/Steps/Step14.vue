@@ -55,6 +55,7 @@
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import { usePatientMedicationReport } from "../../store/step14";
 import { storeToRefs } from "pinia";
+import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
 
 
   
@@ -67,6 +68,10 @@ import { storeToRefs } from "pinia";
   const {patinetRecord,showerror,toggleSelectReport} = storeToRefs(usePatientMedicationReport());
       
       const submitData = function () {
+        if(patinetRecord.value ==='yes'){
+            toggleRecommned();
+            return ;
+        }
         compoentToBeRender(16);
         
       };
@@ -74,6 +79,7 @@ import { storeToRefs } from "pinia";
       return {
         patinetRecord,showerror,toggleSelectReport,
         store,
+        toggleRecommned,
         submitData
       };
     },

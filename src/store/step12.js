@@ -42,7 +42,7 @@ export const usePatientSufferingConditions = defineStore("sufferingConditions", 
         { id: 7, text: "Gallstones", selected: ref(false) },
         { id: 8, text: "History of Inflammatory bowel disease or gastroparesis", selected: ref(false) },
         { id: 9, text: "none", selected: ref(false) },
-        { id: 10, text: "other", selected: ref(false) },
+        
         
 
       ],

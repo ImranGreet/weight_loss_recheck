@@ -73,9 +73,11 @@ import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { usePatientSufferingConditions } from "../../store/step12";
 import {compoentToBeRender, validationError} from "../../scripts/functional_quiz/renderCompos"
+import { recommneded,toggleRecommned } from "../../scripts/functional_quiz/recommendation";
+
 
 export default {
-  name: "Step1",
+  name: "Step12",
 
   setup() {
     const store = usePatientSufferingConditions();
@@ -97,7 +99,12 @@ export default {
         pageErrorMarking.value = true;
         return;
       }
-      compoentToBeRender(14);
+      if(selectedReasons.value.includes('none') && selectedReasons.value.length ===1){
+        compoentToBeRender(14);
+      }else{
+        toggleRecommned();
+      }
+      
     
     };
 
@@ -111,6 +118,7 @@ export default {
       store,
       othersInfo,
       pageErrorMarking,
+      toggleRecommned,
       submitData,
      
     };

@@ -47,6 +47,7 @@
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import {usePregnantWomenReport} from "../../store/step6"
 import { storeToRefs } from "pinia";
+import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
   
   export default {
     name: "Step6",
@@ -57,6 +58,12 @@ import { storeToRefs } from "pinia";
       const store = usePregnantWomenReport();
       
       const submitData = function () {
+
+        if(pregnacnyOrHaveChild.value ==='yes'){
+          toggleRecommned();
+          return;
+        }
+
         if(pregnacnyOrHaveChild.value ){
           compoentToBeRender(8);
         }else{
@@ -69,10 +76,12 @@ import { storeToRefs } from "pinia";
       return {
         
         toggleSelectStates,
-        submitData,
+        
         pregnacnyOrHaveChild,
         store,
-        showError
+        showError,
+        toggleRecommned,
+        submitData,
       
       };
     },

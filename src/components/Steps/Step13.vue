@@ -73,6 +73,8 @@ import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useApplicantSuffering } from "../../store/step13";
 import {compoentToBeRender, validationError} from "../../scripts/functional_quiz/renderCompos"
+import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
+
 
 export default {
   name: "Step13",
@@ -97,6 +99,7 @@ export default {
         pageErrorMarking.value = true;
         return;
       }
+      
       compoentToBeRender(15);
     
     };
@@ -111,6 +114,7 @@ export default {
       store,
       othersInfo,
       pageErrorMarking,
+      toggleRecommned,
       submitData,
      
     };

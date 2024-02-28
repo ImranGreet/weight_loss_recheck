@@ -56,6 +56,7 @@ import { storeToRefs } from 'pinia';
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
  
   import {useApplicantAllergicToSpecificDrug} from "../../store/step18"
+import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
   export default {
     name: "Step18",
   
@@ -65,6 +66,10 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
   const store = useApplicantAllergicToSpecificDrug();
       
       const submitData = function () {
+        if(haveAllergy.value ==='yes'){
+          toggleRecommned();
+          return ;
+        }
         compoentToBeRender(20);
       };
   
@@ -73,6 +78,7 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
         haveAllergy,
         showerror,
         toggleRadio,
+        toggleRecommned,
         submitData
       };
     },
