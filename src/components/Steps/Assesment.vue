@@ -24,7 +24,7 @@
                 <div>
                   <h5>WITH OUR PERSONALISED PLAN</h5>
                   <h2>You could reach {{ Math.ceil(newWeight) }} kg</h2>
-                  <h2>In 6 Months</h2>
+                  <!-- <h2>In 6 Months</h2> -->
                   <p>
                     That’s a weight loss of {{ Math.floor(weightLossTotal) }} kg
                   </p>

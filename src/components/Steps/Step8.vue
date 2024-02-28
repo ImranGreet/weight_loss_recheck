@@ -63,7 +63,12 @@ import { storeToRefs } from 'pinia';
       });
 
       const submitData = function () {
-        compoentToBeRender(10);
+        if(selectedOption.value){
+          compoentToBeRender(10);
+        }else{
+          showError.value=true
+        }
+        
         
       };
   
