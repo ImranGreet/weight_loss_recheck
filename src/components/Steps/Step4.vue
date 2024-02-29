@@ -45,7 +45,7 @@ import { storeToRefs } from 'pinia';
       
   const {applicantTarget,showError} = storeToRefs(useApplicantWeightTarget());
 
-      let question = "What is your goal weight?";
+      let question = "What is your target weight?";
      
       let goalWeightError = ref("");
       let switchToStone = ref(false);

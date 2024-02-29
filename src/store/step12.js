@@ -44,7 +44,7 @@ export const usePatientSufferingConditions = defineStore("sufferingConditions", 
         { id: 8, text: "Personal or family history of medullary thyroid cancer", selected: ref(false) },
         { id: 9, text: "History of Inflammatory bowel disease or gastroparesis", selected: ref(false) },
         { id: 10, text: "Gallstones", selected: ref(false) },
-        { id: 11, text: "none", selected: ref(false) },
+        { id: 11, text: "None", selected: ref(false) },
         
         
 

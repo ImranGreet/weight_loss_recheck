@@ -56,6 +56,22 @@
             This is field is required
           </p>
         </div>
+        <div class="w-full h-10"></div>
+        <div class="space-y-2 prose max-w-none w-full">
+          <h4>
+            What are your main challenges when it comes to losing weight?
+          </h4>
+          <div class="">
+            <textarea
+            
+             
+              placeholder="Type Answer Here"
+              class="w-full p-2 border border-gray-400 rounded-md"
+              rows="4"
+            ></textarea>
+            
+          </div>
+        </div>
           <div class="w-full h-3"></div>
           <globalForm/>
         </form>

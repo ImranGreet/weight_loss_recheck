@@ -66,7 +66,7 @@ export const useApplicantSuffering = defineStore("sufferingStates", () => {
         },
         { id: 12, text: "Depression", selected: ref(false) },
         { id: 13, text: "Fatty liver disease", selected: ref(false) },
-        { id: 14, text: "none", selected: ref(false) },
+        { id: 14, text: "None", selected: ref(false) },
       ],
     },
   ]);

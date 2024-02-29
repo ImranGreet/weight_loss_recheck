@@ -5,17 +5,124 @@
           class="w-full px-2 sm:px-0  flex flex-col justify-center items-center mx-auto"
         >
           <div class="space-y-6 prose w-full max-w-none">
-            <div>
-              <h3>Are you allergic to any of the following?</h3>
-              <p>
+            
+
+
+            <div class="space-y-6 prose max-w-none w-full">
+              <h3 class="after-content">
+                Are you allergic to any of the following?
+              </h3>
+
+
+              <div
+                
+               
+                class="flex items-center space-x-2 cursor-pointer"
+               
+              >
+                <input
+                  type="checkbox"
+                  
+                  class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
+                  
+                />
+                <label
+                  for="reason"
+                  class="text-base"
+                 
+                >
                 GLP-1 Medication including Rybelsus, Saxenda, Ozempic, Trulicity
                 or Victoza
-              </p>
-  
-              <p>Salcaprozate sodium</p>
-              <p>Povidone K90</p>
-              <p>Cellulose, microcrystalline</p>
-              <p>Magnesium stearate</p>
+                </label>
+              </div>
+
+              <div
+                
+               
+                class="flex items-center space-x-2 cursor-pointer"
+               
+              >
+                <input
+                  type="checkbox"
+                  
+                  class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
+                  
+                />
+                <label
+                  for="reason"
+                  class="text-base"
+                 
+                >
+                Salcaprozate sodium
+                </label>
+              </div>
+
+              <div
+                
+               
+                class="flex items-center space-x-2 cursor-pointer"
+               
+              >
+                <input
+                  type="checkbox"
+                  
+                  class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
+                  
+                />
+                <label
+                  for="reason"
+                  class="text-base"
+                 
+                >
+                Povidone K90
+                </label>
+              </div>
+
+              <div
+                
+               
+                class="flex items-center space-x-2 cursor-pointer"
+               
+              >
+                <input
+                  type="checkbox"
+                  
+                  class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
+                  
+                />
+                <label
+                  for="reason"
+                  class="text-base"
+                 
+                >
+                Cellulose, microcrystalline
+                </label>
+              </div>
+
+
+              <div
+                
+               
+                class="flex items-center space-x-2 cursor-pointer"
+               
+              >
+                <input
+                  type="checkbox"
+                  
+                  class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
+                  
+                />
+                <label
+                  for="reason"
+                  class="text-base"
+                 
+                >
+               Magnesium stearate
+                </label>
+              </div>
+
+
+             
             </div>
   
             <div class="flex flex-row-reverse justify-end items-center w-full ">
