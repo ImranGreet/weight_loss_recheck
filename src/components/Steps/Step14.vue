@@ -6,7 +6,7 @@
             <h3>Are you taking any of the following medications?</h3>
 
             <div class="px-3">
-              <select>
+              <select class="border border-gray-700 rounded-lg px-3 py-2 w-2/6">
                 <option value="">Please Select</option>
                 <option value="insulin">Insulin</option>
                 <option value="Sulfonylureas">Sulfonylureas e.g., gliclazide</option>

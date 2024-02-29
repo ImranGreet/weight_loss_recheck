@@ -39,7 +39,7 @@ export const usePrimaryMotives = defineStore("primaryMotives", () => {
           text: "Improving my sleep or energy levels",
           selected: ref(false),
         },
-        { id: 7, text: "other", selected: ref(false) },
+        { id: 7, text: "Other", selected: ref(false) },
       ],
     },
   ]);

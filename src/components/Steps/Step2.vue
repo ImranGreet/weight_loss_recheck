@@ -11,7 +11,7 @@
           <h3 class="after-content">Have you set a target weight that you aim to reach?</h3>
 
           <div class="flex flex-row-reverse justify-end items-center w-full">
-            <label for="yes" class="ml-3"> yes</label>
+            <label for="yes" class="ml-3"> Yes</label>
             <input
             @change="store.toggleRadio(haveTarget)"
               type="radio"
@@ -23,7 +23,7 @@
             />
           </div>
           <div class="flex flex-row-reverse justify-end items-center w-full">
-            <label for="no" class="ml-3"> no</label>
+            <label for="no" class="ml-3"> No</label>
             <input
             @change="store.toggleRadio(haveTarget)"
               type="radio"
