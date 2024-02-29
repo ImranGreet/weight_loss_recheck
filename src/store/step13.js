@@ -15,57 +15,58 @@ export const useApplicantSuffering = defineStore("sufferingStates", () => {
       reasons: [
         {
           id: 1,
-          text: " Type 2 diabetes that is treated injectable medication or insulin",
+          text: "Type 2 diabetes",
           selected: ref(false),
         },
         {
           id: 2,
-          text: "High blood pressure",
+          text: "High cholesterol",
           selected: ref(false),
         },
         {
           id: 3,
-          text: "Erectile dysfunction",
+          text: "Sleep apnoea",
           selected: ref(false),
         },
-        { id: 4, text: "Sleep apnoea", selected: ref(false) },
+        { id: 4, text: "Gallbladder disease", selected: ref(false) },
         {
           id: 5,
-          text: "Asthma",
-          selected: ref(false),
-        },
-        {
-          id: 6,
-          text: "Gallstones",
-          selected: ref(false),
-        },
-        {
-          id: 7,
-          text: "Osteoarthritis",
-          selected: ref(false),
-        },
-        {
-          id: 8,
           text: "Chronic back pain",
           selected: ref(false),
         },
         {
-          id: 9,
-          text: "Depression",
-          selected: ref(false),
-        },
-        {
-          id: 10,
+          id: 6,
           text: "PCOS",
           selected: ref(false),
         },
         {
-          id: 11,
-          text: "Fatty liver disease",
+          id: 7,
+          text: "Chronic malabsorption syndrome",
           selected: ref(false),
         },
-        { id: 12, text: "Chronic malabsorption syndrome", selected: ref(false) },
-        { id: 13, text: "none", selected: ref(false) },
+        {
+          id: 8,
+          text: "High blood pressure",
+          selected: ref(false),
+        },
+        {
+          id: 9,
+          text: "Erectile dysfunction",
+          selected: ref(false),
+        },
+        {
+          id: 10,
+          text: "Asthma",
+          selected: ref(false),
+        },
+        {
+          id: 11,
+          text: "Osteoarthritis",
+          selected: ref(false),
+        },
+        { id: 12, text: "Depression", selected: ref(false) },
+        { id: 13, text: "Fatty liver disease", selected: ref(false) },
+        { id: 14, text: "none", selected: ref(false) },
       ],
     },
   ]);

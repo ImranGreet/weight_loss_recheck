@@ -9,7 +9,7 @@
           'bg-blue-50': selectedReasons.length > 0,
         }"
       >
-        <div class="space-y-6 prose max-w-none w-full">
+        <div class="space-y-3 prose max-w-none w-full">
           <h3 class="after-content">
             {{ currentQuestion.text }}
           </h3>

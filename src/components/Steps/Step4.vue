@@ -10,11 +10,11 @@
             <h3>{{ question }}</h3>
             <div class="flex flex-col items-start cursor-pointer p-4">
               <label for="weight" class="text-lg"
-                >What is your goal weight?</label
+                >What is your target weight?</label
               >
               <input
                 type="number"
-                class="w-full p-3 rounded-lg bg-inherit border focus:outline-none"
+                class="w-3/5 p-3 rounded-lg bg-inherit border focus:outline-none placeholder:text-blue-700 placeholder:font-bold"
                 placeholder="Kg"
                 v-model="applicantTarget"
                 @input="validateGoalWeight"

@@ -23,25 +23,28 @@ export const usePatientSufferingConditions = defineStore("sufferingConditions", 
           text: "Multiple endocrine neoplasia type 2",
           selected: ref(false),
         },
-        {
-          id: 3,
-          text: "history of cancer",
-          selected: ref(false),
-        },
-        { id: 4, text: "Type 1 diabetes or diabetic retinopathy", selected: ref(false) },
+        { id: 3, text: "Type 1 diabetes or diabetic retinopathy", selected: ref(false) },
+        { id: 4, text: "Type 2 Diabetes on any injectable medication or insulin", selected: ref(false) },
         {
           id: 5,
-          text: "Personal or family history of medullary thyroid cancer",
+          text: "Pancreatitis",
+          selected: ref(false),
+        },
+       
+        {
+          id: 6,
+          text: "History of Cancer",
           selected: ref(false),
         },
         {
-          id: 6,
-          text: "A current eating disorder or a history of an eating disorder?(e.g., anorexia, bulimia, binge eating disorder)",
+          id: 7,
+          text: "A current eating disorder or a history of an eating disorder? (e.g., anorexia, bulimia, binge eating disorder)",
           selected: ref(false),
         },
-        { id: 7, text: "Gallstones", selected: ref(false) },
-        { id: 8, text: "History of Inflammatory bowel disease or gastroparesis", selected: ref(false) },
-        { id: 9, text: "none", selected: ref(false) },
+        { id: 8, text: "Personal or family history of medullary thyroid cancer", selected: ref(false) },
+        { id: 9, text: "History of Inflammatory bowel disease or gastroparesis", selected: ref(false) },
+        { id: 10, text: "Gallstones", selected: ref(false) },
+        { id: 11, text: "none", selected: ref(false) },
         
         
 

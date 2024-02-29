@@ -9,7 +9,7 @@
           'bg-blue-50': selectedReasons.length > 0,
         }"
       >
-        <div class="space-y-6 prose max-w-none w-full">
+        <div class="space-y-4 prose max-w-none w-full">
           <h3 class="after-content">
             {{ currentQuestion.text }}
           </h3>
@@ -23,7 +23,7 @@
               type="checkbox"
               :id="`reason-${reason.id}`"
               v-model="reason.selected"
-              class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
+              class="text-primary focus:ring-2 focus:ring-primary w-5 h-5 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
               @click="store.toggleCheckbox(reason)"
             />
             <label

@@ -2,14 +2,15 @@
     <section class="w-full bg-inherit rounded-lg shadow-sm">
       <div class="w-full flex flex-col justify-between min-h-[70vh] items-start">
         <div class="prose max-w-none">
-          <h2>
+          <h3>
             Let’s find out if you are suitable for the evony programme.
-            <h2>This will require around 20 minutes of your time.</h2>
-          </h2>
+           
+          </h3>
+          <h3>This will require around 20 minutes of your time.</h3>
         </div>
-        <div class="prose max-w-none">
+        <div class="prose max-w-none w-full">
           <p>Please ensure you have the following before you start the form:</p>
-          <ul class="list-none">
+          <ul >
             <li v-for="(doc, index) in necessaryDocs" :key="index">
               {{ doc.title }}
             </li>

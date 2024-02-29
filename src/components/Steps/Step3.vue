@@ -8,7 +8,7 @@
         
       >
         <div class="space-y-6 prose max-w-none w-full">
-          <h3>Do you have a goal weight you would like to achieve?</h3>
+          <h3 class="after-content">Have you set a target weight that you aim to reach?</h3>
 
           <div class="flex flex-row-reverse justify-end items-center w-full">
             <label for="yes" class="ml-3"> yes</label>

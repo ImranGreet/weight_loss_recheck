@@ -1,45 +1,20 @@
 <template>
     <section class="w-full">
       <div class="w-full h-full flex flex-col justify-center items-center">
-        <form @submit.prevent="submitData()" class="w-full px-2 sm:px-0  mx-auto">
+        <form @submit.prevent="submitData()" class="w-full px-2 sm:px-0 min-h-28  mx-auto">
           <div class="space-y-2 prose max-w-none w-full">
             <h3>Are you taking any of the following medications?</h3>
-            <div class="px-3">
-              <ol class="list-disc">
-                <li>Insulin</li>
-                <li>Sulfonylureas e.g., gliclazide</li>
-                <li>Orlistat</li>
-                <li>'DPP4 inhibitors - usually ending in the word 'gliptin''</li>
-              </ol>
-              <div class="flex flex-col items-center w-full space-y-4">
-                <div class="flex flex-row-reverse justify-end items-center w-full">
-                  <label for="yes" class="ml-3"> yes</label>
-                  <input
-                  @change="store.toggleSelectReport(patinetRecord)"
-                    type="radio"
-                    name="goalWeight"
-                    id="yes"
-                    class="px-2 py-3 w-5 h-5 accent-gray-500/20"
-                    v-model="patinetRecord"
-                    value="yes"
-                  />
-                </div>
 
-                <div class="flex flex-row-reverse justify-end items-center w-full">
-                  <label for="yes" class="ml-3">no</label>
-                  <input
-                  @change="store.toggleSelectReport(patinetRecord)"
-                    type="radio"
-                    name="goalWeight"
-                    id="yes"
-                    class="px-2 py-3 w-5 h-5 accent-gray-500/20"
-                    v-model="patinetRecord"
-                    value="no"
-                  />
-                </div>
-  
-                
-              </div>
+            <div class="px-3">
+              <select>
+                <option value="">Please Select</option>
+                <option value="insulin">Insulin</option>
+                <option value="Sulfonylureas">Sulfonylureas e.g., gliclazide</option>
+                <option value="Orlistat">Orlistat</option>
+                <option value="DPP4 inhibitors">'DPP4 inhibitors - usually ending in the word 'gliptin''</option>
+                <option value="none">None</option>
+              </select>
+              
             </div>
             <div class="w-full h-3"></div>
             <globalForm/>

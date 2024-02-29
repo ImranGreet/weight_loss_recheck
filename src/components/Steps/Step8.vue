@@ -11,7 +11,7 @@
             <div
               v-for="option in currentQuestion.options"
               :key="option.id"
-              class="flex items-center space-x-2 cursor-pointer p-4 rounded-lg"
+              class="flex items-center space-x-2 cursor-pointer  rounded-lg"
              
               @click="store.toggleOption(option)"
             >
