@@ -76,7 +76,7 @@ import { storeToRefs } from "pinia";
       const currentQuestionIndex = ref(0);
 
       const submitData = function () {
-        compoentToBeRender('Step14');
+        compoentToBeRender('Step11');
         
         
       };

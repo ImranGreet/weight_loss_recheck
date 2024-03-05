@@ -51,7 +51,7 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
   const {haveAllergy,showerror,toggleRadio} = storeToRefs(useApplicantAllergeticHistory());
   const store = useApplicantAllergeticHistory();
       const submitData = function () {
-        compoentToBeRender('Step19');
+        compoentToBeRender('Step18');
         
       };
   

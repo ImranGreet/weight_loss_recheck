@@ -69,7 +69,7 @@ import { storeToRefs } from 'pinia';
       };
   
       const submitData = () => {
-        compoentToBeRender('step21')
+        compoentToBeRender('Step21')
       };
 
 

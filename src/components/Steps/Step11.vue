@@ -55,7 +55,7 @@ import { storeToRefs } from 'pinia';
   
 
       const submitData = function () {
-        compoentToBeRender('Step14');
+        compoentToBeRender('Step12');
         
         
       };

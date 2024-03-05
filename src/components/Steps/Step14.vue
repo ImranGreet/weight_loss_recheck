@@ -47,7 +47,7 @@ import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
             toggleRecommned();
             return ;
         }
-        compoentToBeRender('Step18');
+        compoentToBeRender('Step15');
         
       };
   

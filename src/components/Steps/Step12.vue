@@ -100,7 +100,7 @@ export default {
         return;
       }
       if(selectedReasons.value.includes('none') && selectedReasons.value.length ===1){
-        compoentToBeRender('Step15');
+        compoentToBeRender('Step13');
       }else{
         toggleRecommned();
       }

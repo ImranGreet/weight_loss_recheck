@@ -38,7 +38,7 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
         if(showerror.value ===false && userAnswerInput.value.trim().length>0){
-          compoentToBeRender('Step21');
+          compoentToBeRender('Step20');
         }
         
         
