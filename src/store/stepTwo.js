@@ -20,7 +20,7 @@ export const useApplicantHeightWeight = defineStore("applicantHeightweight",()=>
    const BMIresult = computed(()=>{
       if(Applicantheight.value>0 && Applicantweight.value>0){
          let applicantHeightInMeter = Applicantheight.value/100*Applicantheight.value/100;
-         let BMI = Math.floor(Applicantweight.value/applicantHeightInMeter);
+         let BMI = (Applicantweight.value/applicantHeightInMeter).toFixed(1);
          return BMI;
       }
       

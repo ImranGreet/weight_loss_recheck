@@ -125,7 +125,10 @@
   import { useRouter } from "vue-router";
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import { useApplicantHeightWeight } from "../../store/stepTwo";
+
 import { storeToRefs } from 'pinia';
+import { useApplicantSuffering } from "../../store/step13";
+import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
 
   
   export default {
@@ -134,6 +137,7 @@ import { storeToRefs } from 'pinia';
       const routes = useRouter();
 
       const {Applicantheight,Applicantweight,BMIresult,ApplicantBMIRange,ApplicantRegion,getApplicantRegion} = storeToRefs(useApplicantHeightWeight());
+      const {selectedReasons} = storeToRefs(useApplicantSuffering());
       const store = useApplicantHeightWeight();
 
     
@@ -183,7 +187,16 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
           if(Applicantheight.value && Applicantweight.value && ApplicantRegion.value && ApplicantBMIRange.value){
-            compoentToBeRender("Assesment");
+            if(ApplicantBMIRange.value ==="between 27.5 - 30" && selectedReasons.value.length>0){
+              compoentToBeRender("Assesment");
+            }else if(ApplicantBMIRange.value ==="over 30"){
+              compoentToBeRender("Assesment");
+            }else if(ApplicantBMIRange.value === "between 24.5 - 27.5" && ApplicantRegion.value ==="yes"){
+              compoentToBeRender("Assesment");
+            }else{
+              toggleRecommned();
+            }
+            
           }
           
           
