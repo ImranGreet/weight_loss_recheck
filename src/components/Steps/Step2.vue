@@ -187,7 +187,7 @@ import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
 
       const submitData = function () {
           if(Applicantheight.value && Applicantweight.value && ApplicantRegion.value && ApplicantBMIRange.value){
-            if(ApplicantBMIRange.value ==="between 27.5 - 30" && selectedReasons.value.length>0){
+            if(ApplicantBMIRange.value ==="between 27.5 - 30" && selectedReasons.value.length>1){
               compoentToBeRender("Assesment");
             }else if(ApplicantBMIRange.value ==="over 30"){
               compoentToBeRender("Assesment");
