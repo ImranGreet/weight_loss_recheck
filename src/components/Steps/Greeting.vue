@@ -3,9 +3,9 @@
     
      
       <div class="prose max-w-none self-start w-full px-5 py-14">
-        <h2>
+        <h2 class="font-semibold tracking-wide text-3xl leading-snug">
           Congratulations on choosing to enhance your health and well-being with
-          evony.
+          evony!
         </h2>
       </div>
    

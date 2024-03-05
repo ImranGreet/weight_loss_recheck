@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full">
+    <section class="w-full py-4 sm:py-0">
       <div
         class="w-full  mt-6 flex flex-col justify-center items-center"
       >
@@ -22,7 +22,7 @@
               </svg>
             </span>
           </h1>
-          <h2 class="text-2xl tracking-widest font-black capitalize">
+          <h2 class="text-2xl tracking-widest font-black capitalize text-center">
               treatment Not recommended
           </h2>
         </div>

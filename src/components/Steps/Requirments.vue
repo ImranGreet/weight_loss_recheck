@@ -10,8 +10,8 @@
         </div>
         <div class="prose max-w-none w-full">
           <p>Please ensure you have the following before you start the form:</p>
-          <ul class="not-prose list-disc">
-            <li v-for="(doc, index) in necessaryDocs" :key="index">
+          <ul class="not-prose list-disc px-4 sm:px-0">
+            <li v-for="(doc, index) in necessaryDocs" :key="index" >
               {{ doc.title }}
             </li>
           </ul>

@@ -14,7 +14,7 @@
               >
               <input
                 type="number"
-                class="w-3/5 p-3 rounded-lg bg-inherit border focus:outline-none placeholder:text-blue-700 placeholder:font-bold"
+                class="w-3/5 p-3 rounded-lg bg-inherit border focus:outline-none placeholder:text-blue-700/70 placeholder:font-semibold "
                 placeholder="Kg"
                 v-model="applicantTarget"
                 @input="validateGoalWeight"

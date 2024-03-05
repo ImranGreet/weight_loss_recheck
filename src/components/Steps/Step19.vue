@@ -5,7 +5,7 @@
           <div class="space-y-2 prose max-w-none w-full">
             <h3>
               If you have any other allergies, please tell us about them here?
-              <span>If You don't have allergies write 'None'</span>
+              <span class="prose-none italic text-lg text-blue-600">If You don't have allergies write 'None'</span>
             </h3>
             <div class="px-3">
               <textarea
