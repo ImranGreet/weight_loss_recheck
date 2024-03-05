@@ -5,6 +5,7 @@
           <div class="space-y-2 prose max-w-none w-full">
             <h3>
               If you have any other allergies, please tell us about them here?
+              <span>If You don't have allergies write 'None'</span>
             </h3>
             <div class="px-3">
               <textarea
@@ -37,7 +38,7 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
         if(showerror.value ===false && userAnswerInput.value.trim().length>0){
-          compoentToBeRender(21);
+          compoentToBeRender('Step21');
         }
         
         

@@ -1,17 +1,43 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 export const useApplicantHeightWeight = defineStore("applicantHeightweight",()=>{
-   const Applicantheight = ref(0);
-   const Applicantweight = ref(0);
+   const Applicantheight = ref(null);
+   const Applicantweight = ref(null);
    const applicantTarget = ref(0);
    const haveTarget = ref(null);
+   const ApplicantRegion = ref(null);
+   const ApplicantBMIRange = ref(null);
+
+   const getApplicantRegion = function(region){
+      ApplicantRegion.value = region.trim();
+   }
+
+   const getApplicantBMIrange = function(range){
+      ApplicantBMIRange.value = range;
+   }
+
+   const BMIresult = computed(()=>{
+      if(Applicantheight.value>0 && Applicantweight.value>0){
+         let applicantHeightInMeter = Applicantheight.value/100*Applicantheight.value/100;
+         let BMI = Math.floor(Applicantweight.value/applicantHeightInMeter);
+         return BMI;
+      }
+      
+   })
+
+  
 
 
    return {
       Applicantheight,
       Applicantweight,
       applicantTarget,
-      haveTarget
+      haveTarget,
+      BMIresult,
+      ApplicantBMIRange,
+      ApplicantRegion,
+      getApplicantRegion,
+      getApplicantBMIrange
    }
 })

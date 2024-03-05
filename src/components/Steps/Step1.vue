@@ -28,7 +28,7 @@
               />
               <label
                 :for="`reason-${reason.id}`"
-                class="text-base"
+                class="text-base capitalize"
                 @click="store.toggleCheckbox(reason)"
               >
                 {{ reason.text }}
@@ -97,7 +97,7 @@ import {compoentToBeRender, validationError} from "../../scripts/functional_quiz
           pageErrorMarking.value = true;
           return;
         }
-        compoentToBeRender(3);
+        compoentToBeRender('Step3');
       
       };
   

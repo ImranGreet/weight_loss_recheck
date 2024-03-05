@@ -4,7 +4,7 @@
         <form @submit.prevent="submitData()"
           class="w-full px-2 sm:p-5 rounded-lg flex flex-col justify-start items-start mx-auto"
         >
-          <div class="space-y-6 prose max-w-none w-full">
+          <div class="space-y-2 prose max-w-none w-full">
             <h3 class="after-content">{{ currentQuestion.text }}</h3>
             <div
               v-for="reason in currentQuestion.reasons"
@@ -19,7 +19,7 @@
                 class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"              />
               <label
                 :for="`reason-${reason.id}`"
-                class="text-lg"
+                class="text-base capitalize"
                 @click="store.toggleCheckbox(reason)"
               >
                 {{ reason.text }}
@@ -76,7 +76,7 @@ import { storeToRefs } from "pinia";
       const currentQuestionIndex = ref(0);
 
       const submitData = function () {
-        compoentToBeRender(13);
+        compoentToBeRender('Step14');
         
         
       };

@@ -60,7 +60,7 @@ import { storeToRefs } from 'pinia';
           return;
         }
         if(decision.value){
-          compoentToBeRender(9);
+          compoentToBeRender('Step10');
         }else{
           showError.value =true
         }

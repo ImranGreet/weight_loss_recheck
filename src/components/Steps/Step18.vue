@@ -70,7 +70,7 @@ import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
           toggleRecommned();
           return ;
         }
-        compoentToBeRender(20);
+        compoentToBeRender('Step21');
       };
   
       return {

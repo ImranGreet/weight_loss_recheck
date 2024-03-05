@@ -100,7 +100,7 @@ export default {
         return;
       }
       
-      compoentToBeRender(15);
+      compoentToBeRender('Step16');
     
     };
 

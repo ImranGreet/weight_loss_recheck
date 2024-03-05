@@ -6,7 +6,7 @@
             <h3>Are you taking any of the following medications?</h3>
 
             <div class="px-3">
-              <select>
+              <select class="border border-gray-400 p-2 focus:outline-none">
                 <option value="">Please Select</option>
                 <option value="insulin">Insulin</option>
                 <option value="Sulfonylureas">Sulfonylureas e.g., gliclazide</option>
@@ -47,7 +47,7 @@ import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
             toggleRecommned();
             return ;
         }
-        compoentToBeRender(16);
+        compoentToBeRender('Step18');
         
       };
   

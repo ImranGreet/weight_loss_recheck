@@ -87,7 +87,7 @@ export default {
     );
     const store = useGLPMedicationReport();
     const submitData = function () {
-      compoentToBeRender(17);
+      compoentToBeRender('Step18');
     };
     return {
       selected,

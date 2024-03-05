@@ -28,7 +28,7 @@
             />
             <label
               :for="`reason-${reason.id}`"
-              class="text-base"
+              class="text-base capitalize"
               @click="store.toggleCheckbox(reason)"
             >
               {{ reason.text }}
@@ -100,7 +100,7 @@ export default {
         return;
       }
       if(selectedReasons.value.includes('none') && selectedReasons.value.length ===1){
-        compoentToBeRender(14);
+        compoentToBeRender('Step15');
       }else{
         toggleRecommned();
       }

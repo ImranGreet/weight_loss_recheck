@@ -9,7 +9,7 @@
           <div class="space-y-6 prose max-w-none w-full">
             <h3>{{ question }}</h3>
             <div class="flex flex-col items-start cursor-pointer p-4">
-              <label for="weight" class="text-lg"
+              <label for="weight" class="text-lg sr-only"
                 >What is your target weight?</label
               >
               <input
@@ -19,7 +19,7 @@
                 v-model="applicantTarget"
                 @input="validateGoalWeight"
               />
-              <p v-if="goalWeightError" class="text-red-500">
+              <p v-if="goalWeightError && applicantTarget>0" class="text-red-500">
                 {{ goalWeightError }}
               </p>
             </div>
@@ -97,7 +97,7 @@ import { storeToRefs } from 'pinia';
       const submitData = function () {
         if(applicantTarget.value !==0){
           if(isAllowedToAdmin()){
-          compoentToBeRender(6);
+          compoentToBeRender('Step5');
         }
         }else if(applicantTarget.value ===0){
           showError.value ===true

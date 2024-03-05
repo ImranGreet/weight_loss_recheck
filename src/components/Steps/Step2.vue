@@ -1,42 +1,123 @@
 <template>
-    <section class="w-full">
-      <div class="w-full h-full flex flex-col justify-center items-center">
-        <form 
-        @submit.prevent="submitData()"
-          class="w-full p-2   flex flex-col justify-center  mx-auto"
-          :class="{'bg-red-100':height===0 || weight===0 || weightError.length>0}"
-        >
-          <div class="space-y-5 prose max-w-none w-full">
-            <h3>{{ question }}</h3>
-            <div class="flex flex-col items-start cursor-pointer  w-full">
-              <label for="height" class="text-lg">Height</label>
-              <input
-                type="number"
-                class="w-full rounded-lg p-2 bg-inherit border focus:outline-none"
-                placeholder="cm"
-                v-model="height"
-                @change="validateHeight"
-              />
-              <p v-if="heightError" class="text-red-500">{{ heightError }}</p>
+     <section class="w-full">
+        <div class="w-full h-full flex flex-col justify-center items-center">
+          <form @submit.prevent="submitData()"
+            class="w-full px-2 sm:px-0  flex flex-col justify-center items-center mx-auto prose max-w-none "
+          >
+           <div class="w-full space-y-2  not-prose text-gray-800">
+            <div class="w-full flex flex-col lg:flex-row">
+              <label for="weight" class="w-full text-start lg:text-end mr-2">Please enter your current weight</label>
+             <div class="w-full flex gap-x-2">
+              <input type="number" name="" id="" 
+              v-model="Applicantweight"
+              class="w-full px-4 border border-gray-500 focus:outline-none self-start">
+              <small>KGs</small>
+              
+             </div>
+             <div class="w-full"></div>
             </div>
-            <div class="flex flex-col items-start cursor-pointer  w-full">
-              <label for="weight" class="text-lg">Weight</label>
-              <input
-                type="number"
-                class="w-full p-2 rounded-lg bg-inherit border focus:outline-none"
-                placeholder="kg"
-                v-model="weight"
-                @change="validateWeight"
-              />
-              <p v-if="weightError" class="text-red-500">{{ weightError }}</p>
+            <div class="w-full flex flex-col lg:flex-row">
+              <label for="weight" class="w-full after-content text-start lg:text-end mr-2">and height</label>
+              <div class="w-full flex gap-x-2 ">
+                <input type="number" name="" id="" 
+                v-model="Applicantheight"
+                class="w-full px-4  border border-gray-500 focus:outline-none self-start">
+                <small>CM</small>
+              </div>
+              <div class="w-full"></div>
+            </div>
+            <div class="w-full flex  flex-col lg:flex-row">
+              <label for="weight" class="w-full  text-start lg:text-end mr-2"></label>
+              <div class="w-full flex gap-x-2 ">
+                <p  id="" class="w-full   self-start text-xl text-gray-600/80">BMI <span>:</span>{{BMIresult}}</p>
+                <small></small>
+              </div>
+              <div class="w-full"></div>
             </div>
            
-          </div>
-          <div class="w-full h-2"></div>
-          <globalForm/>
-        </form>
-      </div>
-    </section>
+           </div>
+          
+           <div class="w-full h-10"></div>
+           <div class="w-full">
+            <h4>Are you from any of the following ethnic groups: Black, Caribbean or African, Asian or Arab?</h4>
+            <div>
+                <div class="flex flex-row-reverse justify-end items-center w-full ">
+                    <label for="yes" class="ml-3">Yes</label>
+                    <input
+                    @change="store.getApplicantRegion(ApplicantRegion)"
+                      type="radio"
+                      name="ethnicGroup"
+                      id="yes"
+                      class="px-2 py-3 w-6 h-6 accent-gray-500"
+                     v-model="ApplicantRegion"
+                      value="yes"
+                    />
+                  </div>
+                  <div class="flex flex-row-reverse justify-end items-center w-full ">
+                    <label for="No" class="ml-3">No</label>
+                    <input
+                     @change="store.getApplicantRegion(ApplicantRegion)"
+                      type="radio"
+                      name="ethnicGroup"
+                      id="yes"
+                      class="px-2 py-3 w-6 h-6 accent-gray-500"
+                      v-model="ApplicantRegion"
+                      value="no"
+                    />
+                  </div>
+            </div>
+           </div>
+
+           <div class="w-full">
+            <h4 class="after-content">Please select the option which best represents your BMI</h4>
+            <div>
+                <div class="flex flex-row-reverse justify-end items-center w-full ">
+                    <label for="yes" class="ml-3">BMI is over 30</label>
+                    <input
+                    @change="store.getApplicantBMIrange(ApplicantBMIRange)"
+                     v-model="ApplicantBMIRange"
+                      type="radio"
+                      name="bmiRange"
+                      id="yes"
+                      class="px-2 py-3 w-6 h-6 accent-gray-500"
+                     
+                      value="over 30"
+                    />
+                  </div>
+                  <div class="flex flex-row-reverse justify-end items-center w-full ">
+                    <label for="No" class="ml-3">BMI is between 27.5 - 30</label>
+                    <input
+                    @change="store.getApplicantBMIrange(ApplicantBMIRange)"
+                    v-model="ApplicantBMIRange"
+                      type="radio"
+                      name="bmiRange"
+                      id="yes"
+                      class="px-2 py-3 w-6 h-6 accent-gray-500"
+                     
+                      value="between 27.5 - 30"
+                    />
+                  </div>
+
+                  <div class="flex flex-row-reverse justify-end items-center w-full ">
+                    <label for="No" class="ml-3">BMI is between 24.5 - 27.5</label>
+                    <input
+                    @change="store.getApplicantBMIrange(ApplicantBMIRange)"
+                    v-model="ApplicantBMIRange"
+                      type="radio"
+                      name="bmiRange"
+                      id="yes"
+                      class="px-2 py-3 w-6 h-6 accent-gray-500"
+                     
+                      value="between 24.5 - 27.5"
+                    />
+                  </div>
+            </div>
+           </div>
+            <div class="w-full h-3"></div>
+            <globalForm/>
+          </form>
+        </div>
+      </section>
   </template>
   
   <script>
@@ -52,7 +133,8 @@ import { storeToRefs } from 'pinia';
     setup() {
       const routes = useRouter();
 
-      const {Applicantheight,Applicantweight} = storeToRefs(useApplicantHeightWeight());
+      const {Applicantheight,Applicantweight,BMIresult,ApplicantBMIRange,ApplicantRegion,getApplicantRegion} = storeToRefs(useApplicantHeightWeight());
+      const store = useApplicantHeightWeight();
 
     
   
@@ -86,28 +168,9 @@ import { storeToRefs } from 'pinia';
       };
   
       //calculate BMI
-      function calcculateBMI() {
-        let heightInMeters = height.value / 100;
-        let BMI = Math.ceil(weight.value / heightInMeters ** 2);
-        if (BMI >= 25) {
-          routes.push({ name: "quizFour" });
-        } else {
-          toggleRecommned();
-        }
-      }
+      
   
-      let isAllowedToAdmin = function () {
-        validateHeight();
-        validateWeight();
-  
-        hasErrors.value = Boolean(heightError.value || weightError.value);
-  
-        if (!hasErrors.value) {
-          return true;
-        }
-  
-        return false;
-      };
+      
   
       const naviagteToPage = function () {
         if (isAllowedToAdmin()) {
@@ -119,16 +182,18 @@ import { storeToRefs } from 'pinia';
       };
 
       const submitData = function () {
-          if(isAllowedToAdmin()){
-            Applicantheight.value = height.value;
-          Applicantweight.value = weight.value;
-          compoentToBeRender(4);
+          if(Applicantheight.value && Applicantweight.value && ApplicantRegion.value && ApplicantBMIRange.value){
+            compoentToBeRender("Assesment");
           }
+          
+          
           
     
       };
   
       return {
+        Applicantweight,
+        Applicantheight,
         question,
         naviagteToPage,
         height,
@@ -138,6 +203,9 @@ import { storeToRefs } from 'pinia';
         hasErrors,
         validateHeight,
         validateWeight,
+        BMIresult,
+        ApplicantBMIRange,ApplicantRegion,
+        store,
         submitData
       };
     },

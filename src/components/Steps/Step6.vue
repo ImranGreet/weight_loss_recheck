@@ -9,7 +9,7 @@
             <h3>Are you pregnant, breastfeeding, or trying to conceive?</h3>
   
             <div class="flex flex-row-reverse justify-end items-center w-full">
-              <label for="yes" class="ml-3"> yes</label>
+              <label for="yes" class="ml-3 capitalize"> yes</label>
               <input
               @change="store.toggleSelectStates(pregnacnyOrHaveChild)"
                 type="radio"
@@ -22,7 +22,7 @@
             </div>
   
             <div class="flex flex-row-reverse justify-end items-center w-full">
-              <label for="no" class="ml-3"> no</label>
+              <label for="no" class="ml-3 capitalize"> no</label>
               <input
               @change="store.toggleSelectStates(pregnacnyOrHaveChild)"
                 type="radio"
@@ -65,7 +65,7 @@ import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
         }
 
         if(pregnacnyOrHaveChild.value ){
-          compoentToBeRender(8);
+          compoentToBeRender('Step8');
         }else{
           showError.value = true
         }

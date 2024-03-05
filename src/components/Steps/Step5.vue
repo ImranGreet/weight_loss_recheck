@@ -2,31 +2,8 @@
     <section class="w-full">
       <div class="w-full h-full flex flex-col justify-center items-center ">
         <form @submit.prevent="submitData()" class="w-full p-2   mx-auto space-y-4"
-        :class="{'bg-red-100':showError,'bg-blue-50':outOfDefault && sex }">
-          <div class="prose max-w-none">
-            <h3>Are you from any of the following ethnic groups</h3>
-            <ul class="list-none">
-              <li><small> Asian </small></li>
-              <li><small> Black African </small></li>
-  
-              <li><small> African-Caribbean or Middle Eastern </small></li>
-              <li>
-                <label for="cars" class="sr-only">Choose a option</label>
-                <select
-                  name="cars"
-                  id="cars"
-                  class="w-24 p-2 rounded-lg bg-gray-300/50 text-gray-900"
-                  v-model="outOfDefault"
-                  @change="store.selectRegion(outOfDefault)"
-                >
-                 <option value="select any of them" disabled  selected>Select Any Of Them</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </li>
-            </ul>
-            
-          </div>
+        :class="{'bg-red-100':showError,'bg-blue-50': sex }">
+          
           <div class="space-y-2 prose">
             <h3>What is your biological sex?</h3>
             <div class="px-3 space-y-6">
@@ -84,12 +61,12 @@ import { storeToRefs } from 'pinia';
       
 
       const submitData = function () {
-        if(sex.value==='female'  && outOfDefault.value){
+        if(sex.value==='female' ){
 
-          compoentToBeRender(7);
+          compoentToBeRender('Step6');
 
-        }else if(sex.value==='male'  && outOfDefault.value){
-          compoentToBeRender(9);
+        }else if(sex.value==='male' ){
+          compoentToBeRender('Step8');
         }
         
         else{

@@ -64,7 +64,7 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
         if(selectedOption.value){
-          compoentToBeRender(10);
+          compoentToBeRender('Step11');
         }else{
           showError.value=true
         }

@@ -89,7 +89,7 @@ import { storeToRefs } from "pinia";
           pageErrorMarking.value = true;
           return;
         }
-        compoentToBeRender(11);
+        compoentToBeRender('Step12');
         
         
       };

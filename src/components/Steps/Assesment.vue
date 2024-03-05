@@ -1,6 +1,6 @@
 <template>
     <section
-      class="w-full min-h-screen flex flex-col justify-center items-center bg-primary"
+      class="w-full  flex flex-col justify-center items-center bg-primary"
     >
       <div class="w-full  mx-auto bg-primary/15">
         <div class="w-full text-center">
@@ -17,21 +17,20 @@
                     the next steps to commence your weight loss journey.
                   </h2>
                 </div>
+                
                 <div>
-                  <h2>You are currenly {{ Math.ceil(Applicantweight) }} kg</h2>
-                  <h4>Your goals Became more active</h4>
-                </div>
-                <div>
-                  <h5>WITH OUR PERSONALISED PLAN</h5>
-                  <h2>You could reach {{ Math.ceil(newWeight) }} kg</h2>
+                  <h2>Your Current  Weight Is {{  Math.ceil(Applicantweight) }} </h2>
+                  <h2>You could reach {{ Math.ceil(Applicantweight - Applicantweight*15/100) }} kg</h2>
                   <!-- <h2>In 6 Months</h2> -->
-                  <p>
-                    That’s a weight loss of {{ Math.floor(weightLossTotal) }} kg
+                  <p class="text-xl text-red-400 italic">
+                    That’s a weight loss of {{ Math.floor(Applicantweight*15/100) }} kg
                   </p>
                 </div>
               </div>
             </div>
-            <WeightChnage :weightLossData="remainWeight" />
+            <div class="hidden">
+              <WeightChnage :weightLossData="remainWeight"  />
+            </div>
           </div>
         </div>
       </div>

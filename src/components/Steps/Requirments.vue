@@ -10,7 +10,7 @@
         </div>
         <div class="prose max-w-none w-full">
           <p>Please ensure you have the following before you start the form:</p>
-          <ul >
+          <ul class="not-prose list-disc">
             <li v-for="(doc, index) in necessaryDocs" :key="index">
               {{ doc.title }}
             </li>
@@ -34,7 +34,7 @@
               Save
             </button>
             <button
-           @click="compoentToBeRender(2)"
+           @click="compoentToBeRender('Step1')"
               class="px-5 py-1 lg:px-10 lg:py-3 rounded-lg bg-gray-400 hover:bg-gray-600 text-white shadow-sm"
             >
               Next
