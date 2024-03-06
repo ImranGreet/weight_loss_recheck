@@ -20,12 +20,14 @@
                 </p>
               </li>
             </ul>
+            <div class="w-full h-5 block md:hidden"></div>
             <router-link 
               :to="{name:'quiz'}"
-              class="bg-[#593560] text-white px-5 xl:px-10 mt-2 py-3 mb-5 sm:mb-0 rounded-full border border-white w-full sm:w-auto no-underline"
+              class="bg-[#593560] text-white px-5 xl:px-10 mt-2 py-2 md:py-3 mb-5 sm:mb-0 rounded-full border border-white w-full sm:w-auto no-underline"
             >
               Am I Eligible
             </router-link>
+            <div class="w-full h-10 hidden md:block"></div>
           </div>
         </div>
         
