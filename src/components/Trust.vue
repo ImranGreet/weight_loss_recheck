@@ -1,7 +1,7 @@
 <template>
   <section class="container xl:max-w-7xl mx-auto px-5 xl:px-0">
     <div class="w-full space-y-8">
-      <div class="prose ">
+      <div class="prose max-w-none xl:max-w-prose">
         <h1 class="text-4xl">
           <span class="text-[#3F7D6E]">Transform your body</span>,
           <span class="text-[#3F7D6E]">transform your life</span>
@@ -14,7 +14,7 @@
         >
           <!-- card -->
           <div
-            class="w-full max-w-xs flex flex-col justify-between items-start gap-y-4"
+            class="w-full md:max-w-xs flex flex-col justify-between items-start gap-y-4"
           >
             <div
               class="w-full flex justify-center items-center overflow-hidden rounded-2xl h-72 relative bg-[#B2CBC5]"
@@ -43,7 +43,7 @@
             </div>
           </div>
           <div
-            class="w-full max-w-xs flex flex-col justify-between items-start gap-y-4"
+            class="w-full md:max-w-xs flex flex-col justify-between items-start gap-y-4"
           >
             <div
               class="w-full flex justify-center items-center overflow-hidden rounded-2xl relative bg-[#B2CBC5] h-72"
@@ -73,7 +73,7 @@
             </div>
           </div>
           <div
-            class="w-full max-w-xs flex flex-col justify-between items-start gap-y-4"
+            class="w-full md:max-w-xs flex flex-col justify-between items-start gap-y-4"
           >
             <div
               class="w-full flex justify-center items-center overflow-hidden rounded-2xl h-72 relative bg-[#B2CBC5]"

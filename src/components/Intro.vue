@@ -1,8 +1,8 @@
 <template>
-  <section class="w-full bg-primary">
+  <section class="w-full bg-primary ">
     <div class="container xl:max-w-full mx-auto px-5 xl:px-0">
       <div class="w-full flex flex-col items-center sm:flex-row sm:gap-x-20 xl:px-20">
-        <div class="w-full ">
+        <div class="w-full my-20 md:mb-0">
           <div class="prose max-w-none">
             <h1
               class="text-xl md:text-2xl lg:text-4xl xl:text-6xl font-[200px] leading-snug xl:leading-[72px]"

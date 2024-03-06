@@ -30,7 +30,7 @@
               </div>
             </div>
           </div>
-          <div class="w-full flex justify-center mt-10 lg:mt-0">
+          <div class="w-full flex justify-center mt-[120px] ">
             <img
               src="../assets/homepage/graph Screenshot 2024-02-08 155706.png"
               alt=""
