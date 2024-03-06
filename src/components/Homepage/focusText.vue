@@ -1,7 +1,7 @@
 <template>
   <div class="container xl:max-w-full mx-auto px-5 xl:px-0">
     <div
-      class="w-full flex flex-col-reverse sm:flex-row justify-between items-center xl:px-20"
+      class="w-full flex flex-col-reverse lg:flex-row justify-between items-center xl:px-20"
     >
       <div class="w-full lg:w-3/5 space-y-6">
         <div class=" space-y-4">

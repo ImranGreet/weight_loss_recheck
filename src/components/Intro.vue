@@ -14,7 +14,7 @@
                 <p class="text-2xl xl:text-3xl ">
                   <span
                     ><CheckIcon
-                      class="inline-block w-6 h-6 text-white font-black text-2xl mr-3 bg-[#593461] border rounded-full p-1"
+                      class="inline-block w-6 h-6 text-white font-black text-xl lg:text-2xl mr-3 bg-[#593461] border rounded-full p-1"
                     />{{ achieve.title }}</span
                   >
                 </p>
