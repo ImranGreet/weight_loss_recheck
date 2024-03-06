@@ -5,13 +5,13 @@
         <div class="w-full ">
           <div class="prose max-w-none">
             <h1
-              class="text-xl md:text-2xl xl:text-6xl font-[200px] leading-snug xl:leading-[72px]"
+              class="text-xl md:text-2xl lg:text-4xl xl:text-6xl font-[200px] leading-snug xl:leading-[72px]"
             >
               Our <span class="text-secondary">doctors</span> are making weight loss easier to Achieve
             </h1>
             <ul class="list-none prose-ul:pl-0">
               <li v-for="(achieve, index) in achvs" :key="index" class="font-black first:font-semibold ">
-                <p class="text-2xl xl:text-3xl ">
+                <p class="text-base xl:text-3xl ">
                   <span
                     ><CheckIcon
                       class="inline-block w-6 h-6 text-white font-black text-xl lg:text-2xl mr-3 bg-[#593461] border rounded-full p-1"

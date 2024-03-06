@@ -16,15 +16,15 @@
           :key="index"
         >
           <div
-            class="bg-yellow-600/40 rounded-full w-14 h-14 text-3xl font-black flex flex-col md:flex-row justify-center items-center"
+            class="bg-yellow-600/40 rounded-full w-10 h-10 xl:w-14 xl:h-14 text-xl xl:text-3xl font-black flex flex-col md:flex-row justify-center items-center"
           >
             {{ index + 1 }}
           </div>
           <div class="w-full">
-            <h2 class="text-4xl font-bold">
+            <h2 class="text-2xl xl:text-4xl font-bold">
               {{ description.headText }}
             </h2>
-            <small class="font-bold text-lg">{{ description.smallText }}</small>
+            <small class="font-bold text-base xl:text-lg">{{ description.smallText }}</small>
           </div>
         </div>
       </div>
