@@ -1,17 +1,17 @@
 <template>
-  <section class="w-full g-primary">
-    <div class="container mx-auto px-5 xl:px-0">
-      <div class="w-full flex flex-col items-center sm:flex-row sm:gap-x-20">
-        <div class="w-full space-y-3">
+  <section class="w-full bg-primary">
+    <div class="container xl:max-w-full mx-auto px-5 xl:px-0">
+      <div class="w-full flex flex-col items-center sm:flex-row sm:gap-x-20 xl:px-20">
+        <div class="w-full ">
           <div class="prose max-w-none">
             <h1
-              class="text-4xl xl:text-6xl font-[400px] leading-snug xl:leading-[72px]"
+              class="text-xl md:text-2xl xl:text-6xl font-[200px] leading-snug xl:leading-[72px]"
             >
-              Our Doctors are making weight loss easier to Achieve
+              Our <span class="text-secondary">doctors</span> are making weight loss easier to Achieve
             </h1>
             <ul class="list-none prose-ul:pl-0">
-              <li v-for="(achieve, index) in achvs" :key="index">
-                <p>
+              <li v-for="(achieve, index) in achvs" :key="index" class="font-black first:font-semibold ">
+                <p class="text-2xl xl:text-3xl ">
                   <span
                     ><CheckIcon
                       class="inline-block w-6 h-6 text-white font-black text-2xl mr-3 bg-[#593461] border rounded-full p-1"
@@ -28,20 +28,34 @@
             </router-link>
           </div>
         </div>
-        <div
-          class="w-full h-full hidden sm:flex justify-center items-center self-start xl:self-end"
-        >
-          <video
-            ref="videoPlayer"
-            playsinline
-            loop
-            muted
-            autoplay
-            class="w-full h-full object-cover"
-          >
-            <source src="../assets//homepage/wayvideo.mp4" type="video/mp4" />
-          </video>
-        </div>
+        
+
+<div class="grid grid-cols-2  gap-4">
+  <div class="grid gap-4">
+      <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
+      </div>
+      <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
+      </div>
+      <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
+      </div>
+  </div>
+  <div class="grid gap-4">
+      <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
+      </div>
+      <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
+      </div>
+      <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
+      </div>
+  </div>
+  
+</div>
+
       </div>
     </div>
   </section>
@@ -61,7 +75,7 @@ export default {
     const achvs = ref([
       {
         id: 1,
-        title: "New GLP-1 Medication proven to achieve lasting results",
+        title: "New GLP-1 medication proven to achieve lasting results",
       },
       {
         id: 2,

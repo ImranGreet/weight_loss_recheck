@@ -1,21 +1,27 @@
 <template>
-  <div class="container xl:max-w-7xl mx-auto px-5 xl:px-0">
+  <div class="container xl:max-w-full mx-auto px-5 xl:px-0">
     <div
-      class="w-full flex flex-col-reverse sm:flex-row justify-between items-center"
+      class="w-full flex flex-col-reverse sm:flex-row justify-between items-center xl:px-20"
     >
-      <div class="w-full lg:w-3/5">
+      <div class="w-full lg:w-3/5 space-y-6">
+        <div class=" space-y-4">
+          <h1 class="text-6xl leading-wide font-black">
+            evony <span class="text-yellow-600/65">can help</span>
+          </h1>
+          <h3 class="text-4xl text-yellow-600/65 tracking-tight font-semibold">How to get started</h3>
+        </div>
         <div
-          class="w-full flex gap-x-5"
+          class="w-full flex gap-x-5 justify-start items-center"
           v-for="(description, index) in descriptionOfServices"
           :key="index"
         >
           <div
-            class="bg-yellow-600/40 rounded-full w-8 h-8 xl:w-10 xl:h-10 text-center text-lg xl:text-xl font-black flex justify-center items-center"
+            class="bg-yellow-600/40 rounded-full w-14 h-14 text-3xl font-black flex flex-col md:flex-row justify-center items-center"
           >
             {{ index + 1 }}
           </div>
-          <div class="prose max-w-none">
-            <h2>
+          <div class="w-full">
+            <h2 class="text-4xl font-bold">
               {{ description.headText }}
             </h2>
             <small class="font-bold text-lg">{{ description.smallText }}</small>

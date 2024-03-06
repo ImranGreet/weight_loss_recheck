@@ -1,7 +1,7 @@
 <template>
   <section class="container xl:max-w-7xl mx-auto px-5 xl:px-0">
     <div class="w-full space-y-8">
-      <div class="prose max-w-none xl:max-w-prose">
+      <div class="prose ">
         <h1 class="text-4xl">
           <span class="text-[#3F7D6E]">Transform your body</span>,
           <span class="text-[#3F7D6E]">transform your life</span>
@@ -10,7 +10,7 @@
       </div>
       <div class="w-full p-5">
         <div
-          class="w-full flex flex-col gap-y-4 sm:gap-y-0 sm:flex-row flex-wrap justify-between items-center"
+          class="w-full flex flex-col gap-y-8 xl:gap-y-0 sm:flex-row flex-wrap justify-between items-start"
         >
           <!-- card -->
           <div
@@ -35,7 +35,7 @@
             </div>
 
             <div>
-              <p>
+              <p class="text-xl leading-snug font-semibold">
                 Clinically proven once weekly injections that suppresses hunger
                 and cravings. It has been shown to achieve significant weight
                 loss without the need for calorie counting or extreme diets.
@@ -65,7 +65,7 @@
             </div>
 
             <div>
-              <p>
+              <p class="text-xl leading-snug font-semibold">
                 Stay on track with tailored support from our team of experts.
                 Our doctors and clinicians are here to help with your
                 medication, nutrition, or motivation needs.
@@ -94,7 +94,7 @@
             </div>
 
             <div>
-              <p>
+              <p class="text-xl leading-snug font-semibold">
                 We’ll give you the tools you need to reach your goals and track
                 your progress along the way. We’ll check in with you to ensure
                 your covered during you weight loss journey.

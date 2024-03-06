@@ -1,13 +1,13 @@
 <template>
     <div class="w-full mx-auto bg-primary">
-      <div class="container xl:max-w-7xl mx-auto">
+      <div class="container xl:max-w-full mx-auto px-5 xl:px-0">
         <div
-          class="w-full flex flex-col lg:flex-row justify-between items-center container mx-auto bg-primary py-20"
+          class="w-full flex flex-col lg:flex-row justify-between items-center  mx-auto bg-primary py-20 xl:px-20"
         >
           <div class="w-full prose max-w-none self-start px-5 lg:px-0">
             <div class="w-full">
               <h1 class="lg:text-3xl">
-                Because <span class="text-[#A25756]">Will Power </span> is not
+                Because <span class="text-[#A25756]">will power </span> is not
                 enough
               </h1>
   
