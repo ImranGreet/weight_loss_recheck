@@ -10,7 +10,7 @@
       </div>
       <div class="w-full p-5">
         <div
-          class="w-full flex flex-col gap-y-8 xl:gap-y-0 sm:flex-row flex-wrap justify-between items-start"
+          class="w-full grid xl:flex grid-cols-1 sm:grid-cols-2 lg:grid-cols-3    justify-between gap-6"
         >
           <!-- card -->
           <div
