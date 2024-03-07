@@ -29,8 +29,9 @@
                 </h3>
               </div>
             </div>
+            <h3 class="text-base"> *Results are based on this STEP 1 Wegovy Trial. Trial results vary-weight loss can be more or less than 15% Average</h3>
           </div>
-          <div class="w-full flex justify-center mt-[120px] ">
+          <div class="w-full flex justify-center mt-[120px] xl:mt-auto ">
             <img
               src="../assets/homepage/graph Screenshot 2024-02-08 155706.png"
               alt=""
