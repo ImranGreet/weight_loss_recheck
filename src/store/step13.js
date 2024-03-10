@@ -76,7 +76,9 @@ export const useApplicantSuffering = defineStore("sufferingStates", () => {
 
     if(reason.text !=="none"){
       reason.selected = !reason.selected;
-
+      if(noneCheck.value){
+        noneCheck.value = false
+      }
       if (!selectedReasons.value.includes(reason)) {
         selectedReasons.value.push(reason);
       } else if (selectedReasons.value.includes(reason)) {
@@ -84,6 +86,7 @@ export const useApplicantSuffering = defineStore("sufferingStates", () => {
           (item) => item !== reason,
         );
       }
+
     }else if(reason.text ==="none"){
        selectedReasons.value.forEach((reasonState)=>{
         reasonState.selected =false;
