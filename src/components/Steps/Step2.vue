@@ -137,7 +137,7 @@ import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
       const routes = useRouter();
 
       const {Applicantheight,Applicantweight,BMIresult,ApplicantBMIRange,ApplicantRegion,getApplicantRegion} = storeToRefs(useApplicantHeightWeight());
-      const {selectedReasons} = storeToRefs(useApplicantSuffering());
+      const {selectedReasons,noneCheck} = storeToRefs(useApplicantSuffering());
       const store = useApplicantHeightWeight();
 
     
@@ -187,11 +187,11 @@ import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
 
       const submitData = function () {
           if(Applicantheight.value && Applicantweight.value && ApplicantRegion.value && ApplicantBMIRange.value){
-            if(ApplicantBMIRange.value ==="between 27.5 - 30" && selectedReasons.value.length>1){
+            if(ApplicantBMIRange.value ==="between 27.5 - 30" && selectedReasons.value.length>0 && !noneCheck.value ){
               compoentToBeRender("Assesment");
             }else if(ApplicantBMIRange.value ==="over 30"){
               compoentToBeRender("Assesment");
-            }else if(ApplicantBMIRange.value === "between 24.5 - 27.5" && ApplicantRegion.value ==="yes"){
+            }else if(ApplicantBMIRange.value === "between 24.5 - 27.5" && ApplicantRegion.value ==="yes" && selectedReasons.value.length>0 && !noneCheck.value){
               compoentToBeRender("Assesment");
             }else{
               toggleRecommned();

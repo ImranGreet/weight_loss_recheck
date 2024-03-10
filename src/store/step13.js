@@ -7,6 +7,7 @@ export const useApplicantSuffering = defineStore("sufferingStates", () => {
   const otherSelection = ref(false);
   let errorSign = ref(false);
   let othersInfo = ref("");
+  let noneCheck = ref(false);
 
   const questions = ref([
     {
@@ -90,6 +91,7 @@ export const useApplicantSuffering = defineStore("sufferingStates", () => {
        selectedReasons.value.length=0;
        reason.selected = !reason.selected;
        selectedReasons.value.push(reason);
+       noneCheck.value = true;
     }
     
     
@@ -102,6 +104,7 @@ export const useApplicantSuffering = defineStore("sufferingStates", () => {
     errorSign,
     questions,
     othersInfo,
+    noneCheck,
     toggleCheckbox,
   };
 });
