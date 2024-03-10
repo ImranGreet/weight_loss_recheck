@@ -72,20 +72,27 @@ export const useApplicantSuffering = defineStore("sufferingStates", () => {
   ]);
 
   const toggleCheckbox = (reason) => {
-    reason.selected = !reason.selected;
 
-    if (!selectedReasons.value.includes(reason.text)) {
-      selectedReasons.value.push(reason.text);
-    } else if (selectedReasons.value.includes(reason.text)) {
-      selectedReasons.value = selectedReasons.value.filter(
-        (item) => item !== reason.text,
-      );
+    if(reason.text !=="none"){
+      reason.selected = !reason.selected;
+
+      if (!selectedReasons.value.includes(reason)) {
+        selectedReasons.value.push(reason);
+      } else if (selectedReasons.value.includes(reason)) {
+        selectedReasons.value = selectedReasons.value.filter(
+          (item) => item !== reason,
+        );
+      }
+    }else if(reason.text ==="none"){
+       selectedReasons.value.forEach((reasonState)=>{
+        reasonState.selected =false;
+       });
+       selectedReasons.value.length=0;
+       reason.selected = !reason.selected;
+       selectedReasons.value.push(reason);
     }
-    if (selectedReasons.value.includes("other")) {
-      otherSelection.value = true;
-    } else {
-      otherSelection.value = false;
-    }
+    
+    
   };
 
   return {
