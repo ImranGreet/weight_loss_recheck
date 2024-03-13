@@ -1,14 +1,14 @@
 <template>
-  <div class="container xl:max-w-full mx-auto px-5 xl:px-0">
+  <div class="container xl:max-w-7xl mx-auto px-5 xl:px-0">
     <div
-      class="w-full flex flex-col-reverse lg:flex-row justify-between items-center xl:px-20"
+      class="w-full flex flex-col-reverse lg:flex-row justify-between items-center "
     >
       <div class="w-full lg:w-3/5 space-y-6">
         <div class=" space-y-4">
-          <h1 class="text-6xl leading-wide font-black">
+          <h1 class="text-xl md:text-5xl font-semibold leading-snug">
             evony <span class="text-yellow-600/65">can help</span>
           </h1>
-          <h3 class="text-4xl text-yellow-600/65 tracking-tight font-semibold">How to get started</h3>
+          <h3 class="text-2xl text-yellow-600/65 tracking-tight font-semibold">How to get started</h3>
         </div>
         <div
           class="w-full flex gap-x-5 justify-start items-center"
@@ -16,12 +16,12 @@
           :key="index"
         >
           <div
-            class="bg-yellow-600/40 rounded-full w-10 h-10 xl:w-14 xl:h-14 text-xl xl:text-3xl font-black flex flex-col md:flex-row justify-center items-center"
+            class="bg-yellow-600/40 rounded-full w-10 h-10  text-xl  font-black flex flex-col md:flex-row justify-center items-center"
           >
             {{ index + 1 }}
           </div>
           <div class="w-full">
-            <h2 class="text-2xl xl:text-4xl font-bold">
+            <h2 class="text-2xl xl:text-3xl font-semibold">
               {{ description.headText }}
             </h2>
             <small class="font-bold text-base xl:text-lg">{{ description.smallText }}</small>

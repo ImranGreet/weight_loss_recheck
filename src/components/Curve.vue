@@ -1,29 +1,29 @@
 <template>
     <div class="w-full mx-auto bg-primary">
-      <div class="container xl:max-w-full mx-auto px-5 xl:px-0">
+      <div class="container xl:max-w-7xl mx-auto px-5 xl:px-0">
         <div
-          class="w-full flex flex-col lg:flex-row justify-between items-center  mx-auto bg-primary py-20 xl:px-20"
+          class="w-full flex flex-col lg:flex-row justify-between items-center  mx-auto bg-primary py-20 "
         >
-          <div class="w-full prose max-w-none self-start px-5 lg:px-0">
+          <div class="w-full prose  self-start px-5 lg:px-0">
             <div class="w-full">
-              <h1 class="text-xl lg:text-3xl">
-                Because <span class="text-[#A25756]">will power </span> is not
+              <h1 class="text-xl lg:text-5xl font-medium">
+                Because <span class="text-[#A25756]">will power </span> alone  is not
                 enough
               </h1>
   
-              <p class="text-base xl:text-2xl font-black leading-relaxed">
-                With the Evony Weight loss programme,You can expect to loss of
-                average 15% of Your body weight over 52 weeks of treatment
+              <p class="text-base xl:text-2xl font-medium leading-relaxed ">
+                With the <span class="font-black tracking-widest leading-relaxed text-3xl text-center">evony </span> Weight loss programme,You can expect to loss of
+                <span class="text-[#A25756]">15% of your body weight</span> over 52 weeks of treatment
               </p>
               <div class="space-y-3 bg-[#A25756] text-white rounded-lg p-5">
-                <h3 class="font-black text-base xl:text-2xl">
+                <h3 class="text-xl lg:text-2xl font-medium">
                   Loose some, <span class="text-white">win some</span>
                 </h3>
-                <h3 class="text-base xl:text-2xl font-black">
+                <h3 class="text-xl lg:text-2xl font-medium">
                   Personalised programme Weekly GLP Medication Support from expert
                   doctors
                 </h3>
-                <h3 class="text-base xl:text-2xl font-black">
+                <h3 class="text-xl lg:text-2xl font-medium">
                   £249 £199/month 20% discount on month 1 - subsequent months
                   £249. Pay as you go, every 4 weeks.
                 </h3>

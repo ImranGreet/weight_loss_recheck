@@ -2,7 +2,7 @@
   <section class="container xl:max-w-7xl mx-auto px-5 xl:px-0">
     <div class="w-full space-y-8">
       <div class="prose max-w-none xl:max-w-prose">
-        <h1 class="text-4xl">
+        <h1 class="text-xl md:text-5xl font-semibold leading-snug">
           <span class="text-[#3F7D6E]">Transform your body</span>,
           <span class="text-[#3F7D6E]">transform your life</span>
           <span> With our simple approach</span>

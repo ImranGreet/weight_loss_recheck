@@ -1,22 +1,23 @@
 <template>
   <section class="w-full bg-primary ">
-    <div class="container xl:max-w-full mx-auto px-5 xl:px-0">
-      <div class="w-full flex flex-col items-center sm:flex-row sm:gap-x-20 xl:px-20">
+    <div class="container xl:max-w-7xl mx-auto px-5 xl:px-0">
+      <div class="w-full flex flex-col items-center sm:flex-row sm:gap-x-20 ">
         <div class="w-full my-20 md:mb-0">
           <div class="prose max-w-none">
             <h1
-              class="text-xl md:text-2xl lg:text-4xl xl:text-6xl font-[200px] leading-snug xl:leading-[72px]"
+              class="text-xl md:text-5xl font-semibold leading-snug "
             >
-              Our <span class="text-secondary">doctors</span> are making weight loss easier to Achieve
+              Our <span class="text-secondary">doctors</span> are making weight loss easier to achieve
             </h1>
             <ul class="list-none prose-ul:pl-0">
-              <li v-for="(achieve, index) in achvs" :key="index" class="font-black first:font-semibold ">
-                <p class="text-base xl:text-3xl ">
+              <li v-for="(achieve, index) in achvs" :key="index" class="font-semibold ">
+                <p class="text-base xl:text-2xl flex space-x-1">
                   <span
                     ><CheckIcon
                       class="inline-block w-6 h-6 text-white font-black text-xl lg:text-2xl mr-3 bg-[#593461] border rounded-full p-1"
-                    />{{ achieve.title }}</span
+                    /></span
                   >
+                  <span>{{ achieve.title }}</span>
                 </p>
               </li>
             </ul>
@@ -32,7 +33,7 @@
         </div>
         
 
-<div class="grid grid-cols-2  gap-4">
+<div class="grid grid-cols-2  gap-4 py-10">
   <div class="grid gap-4">
       <div>
           <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
