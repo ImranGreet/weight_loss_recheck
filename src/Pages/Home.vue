@@ -18,7 +18,7 @@
           saying ...</div>
       </div>
       <div
-        class="w-full flex flex-col md:flex-row justify-between items-center"
+        class="w-full flex flex-col md:flex-row justify-between items-center gap-5"
       >
         <div
           class="max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
