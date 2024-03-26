@@ -7,10 +7,74 @@ import App from "./App.vue";
 import GlobalForm from "../src/components/Global/GlobalForm.vue";
 /*global components*/
 
+
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+/* import specific icons */
+import {
+  faUserSecret,
+  faBars,
+  faMagnifyingGlass,
+  faGear,
+  faMoon,
+  faExpand,
+  faCompress,
+  faUser,
+  faGlobe,
+  faLock,
+  faPowerOff,
+  faComment,
+  faCircleUser,
+  faX,
+  faTableCells,
+  faBarsProgress,
+  faUtensils,
+} from '@fortawesome/free-solid-svg-icons';
+
+import { faBell, faCreditCard } from '@fortawesome/free-regular-svg-icons';
+import {
+  faFacebook,
+  faTwitter,
+  faYoutube,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
+
+/* add icons to the library */
+library.add(
+  faUserSecret,
+  faBars,
+  faMagnifyingGlass,
+  faBell,
+  faGear,
+  faMoon,
+  faExpand,
+  faCompress,
+  faUser,
+  faGlobe,
+  faLock,
+  faPowerOff,
+  faCreditCard,
+  faComment,
+  faCircleUser,
+  faX,
+  faFacebook,
+  faTwitter,
+  faYoutube,
+  faInstagram,
+  faTableCells,
+  faBarsProgress,
+  faUtensils,
+);
+
 const pinia = createPinia();
 
 createApp(App)
-  .use(router)
-  .use(pinia)
-  .component("globalForm", GlobalForm)
-  .mount("#app");
+.use(router)
+.use(pinia)
+.component("globalForm", GlobalForm)
+.component('font-awesome-icon', FontAwesomeIcon)
+.mount("#app");

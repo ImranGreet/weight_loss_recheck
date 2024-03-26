@@ -28,15 +28,40 @@ const routes = [
   },
 
   {
-    path:"/personal_info",
-    component:()=>import("../Pages/PersonalInformation.vue"),
-    name:"personal info"
+    path: '/admin',
+    name: 'admin-home',
+    component: () => import('../Layouts/Admin.vue'),
+
+    children: [
+      {
+        path: '/admin',
+        name: 'admin',
+        component: () => import('../Pages/Admin/Dashboard/Dashboard.vue'),
+      },
+      {
+        path: 'settingassets',
+        name: 'setting',
+        component: () => import('../Pages/Admin/Form/Storesettingicons.vue'),
+      },
+      {
+        path: 'products',
+        name: 'products house',
+        component: () => import('../Pages/Admin/Products/ProductHouse.vue'),
+      },
+
+      /*start expense*/
+      {
+        path: 'expenses',
+        name: 'expense',
+        component: () => import('../Pages/Admin/Expense/Expenselist.vue'),
+      },
+     
+      /*end expense*/
+    
+      
+     
+    ],
   },
-  {
-    path:"/submit_ids",
-    component:()=>import("../Pages/SubmitDocs.vue"),
-    name:"submit_ids"
-  }
 
 ];
 

@@ -2,29 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
+
+#app {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @layer components {
   .after-content {
     @apply after:content-['*'] after:text-red-600 after:pl-2;
   }
 }
 
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    appearance: none; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
-
-
-
 @layer components {
-  .patient-input-field{
-     @apply mb-4 border border-lime-800/70 p-2 rounded-md;
+  .patient-input-field {
+    @apply mb-4 border border-lime-800/70 p-2 rounded-md;
   }
 }
