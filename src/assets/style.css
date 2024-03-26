@@ -19,3 +19,12 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+
+
+
+@layer components {
+  .patient-input-field{
+     @apply mb-4 border border-lime-800/70 p-2 rounded-md;
+  }
+}

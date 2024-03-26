@@ -30,7 +30,8 @@ const componentsToRender = [
     "Assesment",
     "PersonalInformation",
     "SubmitDocs",
-    "Preview"
+    "Preview",
+    "ThankYou"
   ];
 
 let rendredCompo = ref(0);

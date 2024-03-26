@@ -29,8 +29,8 @@ import Step21 from "../components/Steps/Step21.vue";
 import Assesment from "../components/Steps/Assesment.vue";
 import PersonalInformation from "./PersonalInformation.vue";
 import SubmitDocs from "./SubmitDocs.vue";
-
 import Preview from "./Preview.vue";
+import ThankYou from "../components/Steps/ThankYou.vue";
 
 /*scripts*/
 import {
@@ -67,7 +67,8 @@ export default {
     Assesment,
     PersonalInformation,
     SubmitDocs,
-    Preview
+    Preview,
+    ThankYou
   },
   setup() {
     const componentsToRender = [
@@ -97,7 +98,8 @@ export default {
       "Assesment",
       "PersonalInformation",
       "SubmitDocs",
-      "Preview"
+      "Preview",
+      "ThankYou"
     ];
 
     return {
