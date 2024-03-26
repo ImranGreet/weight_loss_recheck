@@ -4,7 +4,7 @@
     <div class="text-center lg:text-start">
       <h1 class="text-lg tracking-wider leading-relaxed">
         <span>{{ currentYear }}</span> <span>&#169;</span>
-        Xenmesh Incorporation
+        evony Incorporation
       </h1>
     </div>
     <!-- links -->
