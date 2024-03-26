@@ -9,7 +9,12 @@
     <router-link
       :to="{ name: 'admin' }"
       class="w-full flex justify-center items-center">
-      
+      <div class="flex justify-center items-center -space-x-2">
+        <div
+          class="mix-blend-multiply bg-blue-400 w-5 h-5 md:w-6 md:h-6 rounded-full animate-pulse"></div>
+        <div
+          class="mix-blend-multiply bg-pink-400 w-5 h-5 md:w-6 md:h-6 rounded-full animate-pulse"></div>
+      </div>
       <div
         class="text-center"
         :class="{ hidden: mobileView || sidebarView }">
