@@ -31,6 +31,9 @@
             <div class="hidden">
               <WeightChnage :weightLossData="remainWeight"  />
             </div>
+            <form @submit.prevent="submitData()">
+              <globalForm />
+            </form>
           </div>
         </div>
       </div>
@@ -43,10 +46,13 @@
    useApplicantHeightWeight
   } from "../../store/stepTwo";
 import { storeToRefs } from 'pinia';
+import GlobalForm from '../Global/GlobalForm.vue';
+import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
+
   
   export default {
     name: "Assesment",
-    components: { WeightChnage },
+    components: { WeightChnage, GlobalForm },
     setup() {
         const {Applicantheight,Applicantweight} = storeToRefs(useApplicantHeightWeight());
       const initialWeight = Applicantweight.value;
@@ -66,13 +72,24 @@ import { storeToRefs } from 'pinia';
         remainWeight.push(newWeight);
       }
       console.log(remainWeight);
+
+      
+    const submitData = function () {
+      
+     
+      compoentToBeRender('PersonalInformation');
+    
+    };
+
+
       return {
         Applicantweight,
         Applicantheight,
         newWeight,
         weightLossTotal,
         remainWeight,
-        
+        compoentToBeRender,
+        submitData
       };
     },
   };

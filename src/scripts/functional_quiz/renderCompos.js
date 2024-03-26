@@ -27,7 +27,10 @@ const componentsToRender = [
     'Step19',
     'Step20',
     'Step21',
-    "Assesment"
+    "Assesment",
+    "PersonalInformation",
+    "SubmitDocs",
+    "Preview"
   ];
 
 let rendredCompo = ref(0);

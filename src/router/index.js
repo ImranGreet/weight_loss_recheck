@@ -26,6 +26,18 @@ const routes = [
       },
     ],
   },
+
+  {
+    path:"/personal_info",
+    component:()=>import("../Pages/PersonalInformation.vue"),
+    name:"personal info"
+  },
+  {
+    path:"/submit_ids",
+    component:()=>import("../Pages/SubmitDocs.vue"),
+    name:"submit_ids"
+  }
+
 ];
 
 const router = createRouter({
