@@ -51,9 +51,14 @@ const routes = [
 
       /*start expense*/
       {
-        path: 'expenses',
-        name: 'expense',
+        path: 'member',
+        name: 'member',
         component: () => import('../Pages/Admin/Expense/Expenselist.vue'),
+      },
+      {
+        path: 'user-profile',
+        name: 'profile',
+        component: () => import('../Pages/Admin/Profile.vue'),
       },
      
       /*end expense*/

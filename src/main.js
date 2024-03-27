@@ -32,9 +32,12 @@ import {
   faTableCells,
   faBarsProgress,
   faUtensils,
+  faUsers,
+  faStapler,
+  faImage
 } from '@fortawesome/free-solid-svg-icons';
 
-import { faBell, faCreditCard } from '@fortawesome/free-regular-svg-icons';
+import { faBell, faCreditCard,faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import {
   faFacebook,
   faTwitter,
@@ -67,6 +70,10 @@ library.add(
   faTableCells,
   faBarsProgress,
   faUtensils,
+  faUsers,
+  faNewspaper,
+  faStapler,
+  faImage
 );
 
 const pinia = createPinia();
