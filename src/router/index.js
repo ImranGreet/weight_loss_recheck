@@ -12,6 +12,10 @@ const routes = [
         name: "home",
         component: () => import("../Pages/Home.vue"),
       },
+      {
+        path:"/blog",
+        component:()=>import('../Pages/ReadBlog.vue'),
+      }
     ],
   },
   
@@ -26,6 +30,8 @@ const routes = [
       },
     ],
   },
+
+ 
 
   {
     path: '/admin',
