@@ -51,23 +51,23 @@ export default {
       },
       {
         packageName: "Two Months",
-        price: 129,
+        price: 199,
       },
       {
         packageName: "Three Months",
-        price: 129,
+        price: 239,
       },
       {
         packageName: "Four  Months",
-        price: 129,
+        price: 269,
       },
       {
         packageName: "Five Months",
-        price: 129,
+        price: 299,
       },
       {
         packageName: "Six Months And More",
-        price: 129,
+        price: 299,
       },
     ]);
 
