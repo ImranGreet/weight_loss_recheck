@@ -15,7 +15,12 @@ const routes = [
       {
         path:"/blog",
         component:()=>import('../Pages/ReadBlog.vue'),
-      }
+      },
+      {
+        path:'/subscription',
+        name:'client-subscription',
+        component:()=>import('../Pages/Admin/SubscriptionPage.vue'),
+      },
     ],
   },
   
@@ -30,6 +35,8 @@ const routes = [
       },
     ],
   },
+
+  
 
  
 

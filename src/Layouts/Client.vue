@@ -1,6 +1,6 @@
 <template>
     <section
-      class="w-full flex flex-col justify-center items-center min-h-screen"
+      class="w-full flex flex-col justify-between items-center min-h-screen"
     >
     
     <div class="w-full bg-primary">
@@ -8,12 +8,12 @@
         <router-link to="/" class="text-xl xl:text-4xl font-semibold">+evony</router-link>
         <ul class="flex space-x-3">
           <li>
-            <router-link to="#" class="bg-gray-800 text-white p-2 flex justify-center items-center rounded-full">
+            <router-link :to="{name:'admin-home'}" class="bg-gray-800 text-white p-2 flex justify-center items-center rounded-full">
               <UserIcon class="w-5 h-5 inline-block"/>
             </router-link>
           </li>
           <li>
-            <router-link to="# " class="bg-gray-800 text-white p-2 flex justify-center items-center rounded-full">
+            <router-link :to="{name:'client-subscription'}" class="bg-gray-800 text-white p-2 flex justify-center items-center rounded-full">
               <ShoppingCartIcon class="w-5 h-5 inline-block"/>
             </router-link>
           </li>

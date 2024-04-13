@@ -34,7 +34,8 @@ import {
   faUtensils,
   faUsers,
   faStapler,
-  faImage
+  faImage,
+  
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faBell, faCreditCard,faNewspaper } from '@fortawesome/free-regular-svg-icons';
@@ -43,6 +44,7 @@ import {
   faTwitter,
   faYoutube,
   faInstagram,
+  faServicestack
 } from '@fortawesome/free-brands-svg-icons';
 
 /* add icons to the library */
@@ -73,7 +75,8 @@ library.add(
   faUsers,
   faNewspaper,
   faStapler,
-  faImage
+  faImage,
+  faServicestack
 );
 
 const pinia = createPinia();

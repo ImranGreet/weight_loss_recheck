@@ -1,12 +1,27 @@
 <template>
-  <div class="w-full h-36"></div>
+ <section class="max-w-7xl mx-auto mb-24 xl:my-0 ">
+ 
 
-  <div class="w-full flex flex-col justify-center items-center max-w-96">
+  <div  :class="[$route.name===`client-subscription` ? 'hidden':'w-full  flex flex-col justify-center items-center']">
+    <div class="my-10">
+      <h3 class="text-3xl">You Have subscribed for </h3>
+    </div>
     <Subscription :subscriptionPackage="'One Month'" :subscriptionPrice=250 />
+    <div class="w-full h-36"></div>
   </div>
-  <div class="w-full h-36"></div>
+
+
+  
+  <div  :class="[$route.name===`client-subscription` ? 'w-full  flex flex-col justify-center items-center':'hidden']">
+    
+    <div class="my-10">
+      <h3 class="text-3xl">Our Packages Or Offer </h3>
+    </div>
+   
+  </div>
+
   <section
-    class="w-full h-full md:flex flex-row grid grid-cols-2 md:grid-cols-none justify-between items-start md:gap-6 flex-wrap lg:px-10"
+    class="w-full h-full md:flex flex-row grid grid-cols-2 md:grid-cols-none justify-between items-start gap-2 md:gap-6 flex-wrap lg:px-10 "
   >
     <Subscription 
     v-for="subscriptionbox,index in subscriptionsDuration" :key="index"
@@ -15,11 +30,13 @@
     />
     
   </section>
+ </section>
 </template>
 
 <script>
 import { ref } from "vue";
 import Subscription from "../../components/Card/Subscription.vue";
+
 
 export default {
   name: "SubscriptionPage",
@@ -53,6 +70,11 @@ export default {
         price: 129,
       },
     ]);
+
+    
+
+
+
     return {
       subscriptionsDuration,
     };
