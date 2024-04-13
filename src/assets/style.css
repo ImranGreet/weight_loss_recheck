@@ -30,6 +30,6 @@ input[type="number"] {
 
 @layer components {
   .patient-input-field {
-    @apply mb-4 border border-lime-800/70 p-2 rounded-md;
+    @apply mb-4 p-2 rounded-md;
   }
 }
