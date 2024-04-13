@@ -66,6 +66,12 @@ const routes = [
         name: 'profile',
         component: () => import('../Pages/Admin/Profile.vue'),
       },
+      {
+        path:'subscription',
+        name:'subscription',
+        component:()=>import('../Pages/Admin/SubscriptionPage.vue'),
+        
+      }
      
       /*end expense*/
     
