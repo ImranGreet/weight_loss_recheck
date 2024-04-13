@@ -8,7 +8,7 @@
         <router-link to="/" class="text-xl xl:text-4xl font-semibold">+evony</router-link>
         <ul class="flex space-x-3">
           <li>
-            <router-link :to="{name:'admin-home'}" class="bg-gray-800 text-white p-2 flex justify-center items-center rounded-full">
+            <router-link :to="{name:'admin-home'}" target="_blank" class="bg-gray-800 text-white p-2 flex justify-center items-center rounded-full">
               <UserIcon class="w-5 h-5 inline-block"/>
             </router-link>
           </li>
