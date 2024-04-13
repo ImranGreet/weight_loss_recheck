@@ -6,7 +6,7 @@
     <div class="my-10">
       <h3 class="text-3xl">You Have subscribed for </h3>
     </div>
-    <Subscription :subscriptionPackage="'One Month'" :subscriptionPrice=250 />
+    <Subscription :subscriptionPackage="'One Month'" :subscriptionPrice=129 />
     <div class="w-full h-36"></div>
   </div>
 
