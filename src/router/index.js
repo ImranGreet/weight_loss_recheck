@@ -14,6 +14,7 @@ const routes = [
       },
       {
         path:"/blog",
+        name:"read-blog",
         component:()=>import('../Pages/ReadBlog.vue'),
       },
       {
