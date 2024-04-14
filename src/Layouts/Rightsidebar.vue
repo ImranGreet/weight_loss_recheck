@@ -168,6 +168,28 @@
             >
           </router-link>
           <span></span>
+          <router-link
+            :to="{name:'auth-admin'}"
+            class="w-full h-5 flex items-center mb-4"
+            :class="{
+              'justify-center': !sidebarView,
+              'justify-center': sidebarView,
+            }"
+          >
+            <font-awesome-icon
+            icon="fa-brands fa-servicestack"
+              class="w-5 h-5 text-blue-600 tracking-wider text-3xl font-semibold"
+            />
+          
+            <span
+              :class="{
+                'inline-block text-xl ml-5': !sidebarView,
+                hidden: sidebarView,
+              }"
+              >Authentication</span
+            >
+          </router-link>
+          <span></span>
           
         </div>
       </div>

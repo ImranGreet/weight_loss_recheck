@@ -79,14 +79,27 @@ const routes = [
         name:'subscription',
         component:()=>import('../Pages/Admin/SubscriptionPage.vue'),
         
+      },
+      /*auth*/
+      
+      {
+        path:"admin-reg",
+        name:"auth-admin",
+        component :()=>import('../Pages/Admin/Form/AdminReg.vue'),
       }
-     
       /*end expense*/
     
       
      
     ],
   },
+  {
+    path:"/login",
+    name:"login",
+    component:()=>import('../Pages/Login.vue')
+  }
+
+ 
 
 ];
 
