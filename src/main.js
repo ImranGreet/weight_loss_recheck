@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import "./assets/style.css";
 import router from "./router";
 import { createPinia } from "pinia";
+import "./scripts/authResources/axios";
 import App from "./App.vue";
 /*global compoents*/
 import GlobalForm from "../src/components/Global/GlobalForm.vue";
@@ -46,6 +47,7 @@ import {
   faInstagram,
   faServicestack
 } from '@fortawesome/free-brands-svg-icons';
+import axios from "axios";
 
 /* add icons to the library */
 library.add(
