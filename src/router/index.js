@@ -70,6 +70,11 @@ const routes = [
         component: () => import('../Pages/Admin/Expense/Expenselist.vue'),
       },
       {
+        path: 'home-image',
+        name: 'home-image',
+        component: () => import('../Pages/Admin/Home image/homeimagelist.vue'),
+      },
+      {
         path: 'user-profile',
         name: 'profile',
         component: () => import('../Pages/Admin/Profile.vue'),

@@ -69,12 +69,13 @@ import { CheckBadgeIcon, CheckIcon } from "@heroicons/vue/20/solid";
 
 
 
-import { ref } from "vue";
-
+import { ref ,onMounted} from "vue";
+import axios from "axios";
 export default {
   name: "Intro",
   components: { CheckBadgeIcon, CheckIcon },
   setup() {
+    let users = null;
     const achvs = ref([
       {
         id: 1,
@@ -90,6 +91,12 @@ export default {
           "Personalised programmes for every subscriber with tailored support for black and asian individuals",
       },
     ]);
+ 
+    onMounted(async()=>{
+       let usersCollection = await axios.get("api/user");
+        console.log(usersCollection);
+    });
+
     return {
       achvs,
     };
