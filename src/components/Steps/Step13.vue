@@ -74,6 +74,7 @@ import { ref } from "vue";
 import { useApplicantSuffering } from "../../store/step13";
 import {compoentToBeRender, validationError} from "../../scripts/functional_quiz/renderCompos"
 import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
+import patientHealthStatus from '../../store/patient/health_info';
 
 
 export default {
@@ -101,7 +102,7 @@ export default {
       }
       
       compoentToBeRender('Step14');
-    
+      patientHealthStatus.diagnosed_conditions=selectedReasons;
     };
 
     return {
@@ -116,7 +117,7 @@ export default {
       pageErrorMarking,
       toggleRecommned,
       submitData,
-     
+      patientHealthStatus
     };
   },
 };

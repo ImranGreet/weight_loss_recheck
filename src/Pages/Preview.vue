@@ -58,7 +58,7 @@
               >Have you set a target weight that you aim to reach?*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              No
+             {{ patientHealthStatus.have_target_weight }}
             </p>
           </div>
         </li>
@@ -67,7 +67,9 @@
             <label class="block text-gray-700 text-sm font-bold mb-2"
               >What is your target weight?</label
             >
-            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm"></p>
+            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
+              {{ patientHealthStatus.target_weight }}
+            </p>
           </div>
         </li>
         <li>
@@ -76,7 +78,7 @@
               >How long have you struggled with your weight?*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              I haven't really struggled with my weight
+              {{ patientHealthStatus.how_struggled_weight }}
             </p>
           </div>
         </li>
@@ -87,7 +89,7 @@
               attempts to lose weight?*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              I haven't tried to lose weight
+              {{ patientHealthStatus.approaches_methods }}
             </p>
           </div>
         </li>
@@ -97,7 +99,9 @@
               >What are your main challenges when it comes to losing
               weight?</label
             >
-            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm"></p>
+            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
+              {{ patientHealthStatus.your_main_challenges }}
+            </p>
           </div>
         </li>
         <li>
@@ -106,7 +110,7 @@
               >Do you suffer from any of the following?*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              No
+              {{ patientHealthStatus.suffer_following }}
             </p>
           </div>
         </li>
@@ -116,7 +120,7 @@
               >Are pregnant, breast feeding or trying to conceive?*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              No
+           {{patientHealthStatus.pregnant_lactic}}
             </p>
           </div>
         </li>
@@ -127,7 +131,7 @@
               conditions?*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              None
+             {{patientHealthStatus.diagnosed_conditions}}
             </p>
           </div>
         </li>
@@ -137,7 +141,7 @@
               >Are you taking any of the following medications*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              None
+              {{ patientHealthStatus.taking_medications }}
             </p>
           </div>
         </li>
@@ -148,7 +152,7 @@
               Ozempic/Saxenda/Wegovy?*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              No
+              {{ patientHealthStatus.taking_Ozempic }}
             </p>
           </div>
         </li>
@@ -172,7 +176,9 @@
               >Please list your current medications, their strengths, and what
               you take them for.</label
             >
-            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm"></p>
+            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
+              {{ patientHealthStatus.list_current_medications }}
+            </p>
           </div>
         </li>
         <li>
@@ -181,7 +187,7 @@
               >Are you allergic to any of the following?*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              No
+              {{ patientHealthStatus.allergic_to_these }}
             </p>
           </div>
         </li>
@@ -191,7 +197,9 @@
               >If 'no' please list any other allergies you have or write
               'none'</label
             >
-            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm"></p>
+            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
+              {{ patientHealthStatus.allergies_none }}
+            </p>
           </div>
         </li>
         <li>
@@ -199,17 +207,8 @@
             <label class="block text-gray-700 text-sm font-bold mb-2"
               >Please enter your current weight and height *</label
             >
-            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm"></p>
-          </div>
-        </li>
-        <li>
-          <div class="patient-input-field">
-            <label class="block text-gray-700 text-sm font-bold mb-2"
-              >Are you from any of the following ethnic groups: Black, Caribbean
-              or African, Asian or Arab?</label
-            >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              Yes
+              {{ patientHealthStatus.current_weight_height }}
             </p>
           </div>
         </li>
@@ -220,7 +219,18 @@
               or African, Asian or Arab?</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              Yes
+              {{ patientHealthStatus.ethnic_groups }}
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="patient-input-field">
+            <label class="block text-gray-700 text-sm font-bold mb-2"
+              >Are you from any of the following ethnic groups: Black, Caribbean
+              or African, Asian or Arab?</label
+            >
+            <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
+             {{ patientHealthStatus.ethnic_groups }}
             </p>
           </div>
         </li>
@@ -230,7 +240,7 @@
               >Please select the option which best represents your BMI*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              BMI is over 30
+              BMI is {{ patientHealthStatus.BMI_range }}
             </p>
           </div>
         </li>
@@ -262,7 +272,7 @@
               >Name*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              Courtney Clemons
+              {{ userInformation.firstName + userInformation.lastName }}
             </p>
           </div>
         </li>
@@ -272,7 +282,7 @@
               >Email*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              pigagalak@mailinator.com
+              {{ userInformation.email }}
             </p>
           </div>
         </li>
@@ -282,7 +292,7 @@
               >Phone Number*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              18694032444
+              {{ userInformation.phoneNumber }}
             </p>
           </div>
         </li>
@@ -292,7 +302,8 @@
               >Address*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              123 Main Street, City, State, Zip
+              {{ userInformation.address.streetAdressOne }},
+              {{ userInformation.address.streetAddressTwo }}
             </p>
           </div>
         </li>
@@ -302,7 +313,7 @@
               >Date of Birth*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              10/04/1991
+              {{ userInformation.dateOfBirth }}
             </p>
           </div>
         </li>
@@ -312,7 +323,7 @@
               >Place of Birth</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              123 Main Street, City, State, Zip
+              {{ userInformation.placeOfBirth }}
             </p>
           </div>
         </li>
@@ -322,7 +333,7 @@
               >Gender*</label
             >
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              Male
+              {{ userInformation.gender }}
             </p>
           </div>
         </li>
@@ -336,8 +347,8 @@
             <address
               class="text-gray-900 border border-lime-300 p-2 rounded-sm"
             >
-              Dr. Emily Smith London Medical Practice 456 Oak Avenue, London,
-              LK3 4CD, United Kingdom.
+              
+              {{ userInformation.GPS_name_and_address }}
             </address>
           </div>
         </li>
@@ -349,7 +360,7 @@
             >
 
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              hotonezan@mailinator.com
+             {{userInformation.GP_Practices_email_address}}
             </p>
           </div>
         </li>
@@ -374,7 +385,7 @@
             >
 
             <p class="text-gray-900 border border-lime-300 p-2 rounded-sm">
-              Screenshot (5).png
+             {{userInformation.ID}}
             </p>
           </div>
         </li>
@@ -434,6 +445,9 @@
 
 <script>
 import { compoentToBeRender } from "../scripts/functional_quiz/renderCompos";
+import userInformation from '../store/auth/userInfo';
+import patientHealthStatus from "../store/patient/health_info";
+
 
 export default {
   name: "Preview",
@@ -444,6 +458,8 @@ export default {
     return {
       submitData,
       compoentToBeRender,
+      userInformation,
+      patientHealthStatus
     };
   },
 };

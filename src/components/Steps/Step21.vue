@@ -72,10 +72,12 @@ import { storeToRefs } from "pinia";
 
 import { ref } from "vue";
 import { usePatientSufferings } from "../../store/step21";
-import {compoentToBeRender, validationError} from "../../scripts/functional_quiz/renderCompos"
+import {compoentToBeRender, validationError} from "../../scripts/functional_quiz/renderCompos";
+import patientHealthStatus from '../../store/patient/health_info';
+
 
 export default {
-  name: "Step1",
+  name: "Step21",
 
   setup() {
     const store = usePatientSufferings();
@@ -97,6 +99,7 @@ export default {
         pageErrorMarking.value = true;
         return;
       }
+      patientHealthStatus.suffer_following=selectedReasons.value;
       compoentToBeRender('Step2');
     
     };
@@ -112,7 +115,7 @@ export default {
       othersInfo,
       pageErrorMarking,
       submitData,
-     
+      patientHealthStatus
     };
   },
 };

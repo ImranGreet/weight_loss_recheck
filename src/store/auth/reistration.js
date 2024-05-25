@@ -4,7 +4,7 @@ import axios from "axios";
 import { ref } from "vue";
 
 export const useAuthRegistration = defineStore("registration", () => {
-  const alertMessage = ref(null);
+  let alertMessage = ref(null);
   const registrationToEvony = async function () {
     const evonyRegWay = await axios.post(
       "https://backendevony.evony.me/api/user",

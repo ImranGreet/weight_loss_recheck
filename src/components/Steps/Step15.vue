@@ -78,6 +78,8 @@ import { ref } from "vue";
 import { compoentToBeRender } from "../../scripts/functional_quiz/renderCompos";
 import { useGLPMedicationReport } from "../../store/step15";
 import { storeToRefs } from "pinia";
+import patientHealthStatus from '../../store/patient/health_info';
+
 
 export default {
   name: "Step15",
@@ -87,6 +89,7 @@ export default {
     );
     const store = useGLPMedicationReport();
     const submitData = function () {
+      patientHealthStatus.taking_Ozempic=selected.value;
       compoentToBeRender('Step16');
     };
     return {
@@ -96,6 +99,7 @@ export default {
       showError,
       selectOption,
       submitData,
+      patientHealthStatus
     };
   },
 };

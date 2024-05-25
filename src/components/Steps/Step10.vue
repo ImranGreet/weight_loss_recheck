@@ -65,6 +65,8 @@
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import {useChallengesForLosingWeight} from "../../store/step10"
 import { storeToRefs } from "pinia";
+import patientHealthStatus from "../../store/patient/health_info";
+
   
   export default {
     name: "Step10",
@@ -76,6 +78,7 @@ import { storeToRefs } from "pinia";
       const currentQuestionIndex = ref(0);
 
       const submitData = function () {
+        patientHealthStatus.your_main_challenges = selectedReasons;
         compoentToBeRender('Step12');
         
         
@@ -87,7 +90,8 @@ import { storeToRefs } from "pinia";
         toggleCheckbox,
         otherSelection,selectedReasons,errorSign,othersInfo,
         store,
-        submitData
+        submitData,
+        patientHealthStatus
       };
     },
   };

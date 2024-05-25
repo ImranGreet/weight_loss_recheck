@@ -29,6 +29,8 @@
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import {usePatientAllergicInfo} from "../../store/step19"
 import { storeToRefs } from 'pinia';
+import patientHealthStatus from '../../store/patient/health_info';
+
   
   export default {
     name: "Step19",
@@ -38,6 +40,7 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
         if(showerror.value ===false && userAnswerInput.value.trim().length>0){
+          patientHealthStatus.allergies_none = userAnswerInput.value;
           compoentToBeRender('Step20');
         }
         
@@ -49,7 +52,8 @@ import { storeToRefs } from 'pinia';
         getTheAnswer,
         store,
         showerror,
-        submitData
+        submitData,
+        patientHealthStatus
       };
     },
   };

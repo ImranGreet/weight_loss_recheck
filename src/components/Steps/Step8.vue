@@ -42,6 +42,8 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 
 import {useStruggledForLosingWeight} from "../../store/step8"
 import { storeToRefs } from 'pinia';
+import patientHealthStatus from '../../store/patient/health_info';
+
   
   export default {
     name: "Step8",
@@ -64,6 +66,7 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
         if(selectedOption.value){
+          patientHealthStatus.how_struggled_weight = selectedOption.value;
           compoentToBeRender('Step10');
         }else{
           showError.value=true
@@ -78,7 +81,8 @@ import { storeToRefs } from 'pinia';
         submitData,
         selectedOption,
         store,
-        showError
+        showError,
+        patientHealthStatus
       };
     },
   };

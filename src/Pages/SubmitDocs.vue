@@ -16,7 +16,7 @@
         
                 <div>
                     <h3 class="after-content"></h3>
-                    <input type="file" name="" id="">
+                    <input type="file" name="" id="" @change="submitId()">
                 </div>
         
                 <div>
@@ -59,6 +59,8 @@
     
     <script>
 import { compoentToBeRender } from '../scripts/functional_quiz/renderCompos';
+import userInformation from '../store/auth/userInfo';
+
     
   export default {
     name: "SubmitId",
@@ -66,9 +68,15 @@ import { compoentToBeRender } from '../scripts/functional_quiz/renderCompos';
       const submitData = function () {
       compoentToBeRender("Preview");
     };
+    const submitId = function(){
+      userInformation.ID = event.target.files[0].name;
+      console.log(userInformation.ID);
+    }
       return {
         compoentToBeRender,
-        submitData
+        submitData,
+        submitId,
+        userInformation
       }
     }
   };

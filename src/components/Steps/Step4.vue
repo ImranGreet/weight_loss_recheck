@@ -37,6 +37,7 @@
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import { useApplicantWeightTarget } from '../../store/step4';
 import { storeToRefs } from 'pinia';
+import patientHealthStatus from "../../store/patient/health_info";
 
   
   export default {
@@ -96,6 +97,7 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
         if(applicantTarget.value !==0){
+          patientHealthStatus.target_weight = applicantTarget.value;
           if(isAllowedToAdmin()){
           compoentToBeRender('Step5');
         }
@@ -117,7 +119,8 @@ import { storeToRefs } from 'pinia';
         hasErrors,
         validateGoalWeight,
         submitData,
-        applicantTarget
+        applicantTarget,
+        patientHealthStatus
       };
     },
   };

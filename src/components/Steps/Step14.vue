@@ -6,7 +6,7 @@
             <h3>Are you taking any of the following medications?</h3>
 
             <div class="px-3">
-              <select class="border border-gray-400 p-2 focus:outline-none w-full md:w-2/5">
+              <select class="border border-gray-400 p-2 focus:outline-none w-full md:w-2/5" v-model="patientHealthStatus.taking_medications">
                 <option value="">Please Select</option>
                 <option value="insulin">Insulin</option>
                 <option value="Sulfonylureas">Sulfonylureas e.g., gliclazide</option>
@@ -31,6 +31,7 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import { usePatientMedicationReport } from "../../store/step14";
 import { storeToRefs } from "pinia";
 import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
+import patientHealthStatus from '../../store/patient/health_info';
 
 
   
@@ -55,7 +56,8 @@ import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
         patinetRecord,showerror,toggleSelectReport,
         store,
         toggleRecommned,
-        submitData
+        submitData,
+        patientHealthStatus
       };
     },
   };

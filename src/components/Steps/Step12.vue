@@ -74,6 +74,8 @@ import { ref } from "vue";
 import { usePatientSufferingConditions } from "../../store/step12";
 import {compoentToBeRender, validationError} from "../../scripts/functional_quiz/renderCompos"
 import { recommneded,toggleRecommned } from "../../scripts/functional_quiz/recommendation";
+import patientHealthStatus from '../../store/patient/health_info';
+
 
 
 export default {
@@ -100,6 +102,7 @@ export default {
         return;
       }
       if(selectedReasons.value.includes('none') && selectedReasons.value.length ===1){
+        patientHealthStatus.suffer_following = selectedReasons;
         compoentToBeRender('Step13');
       }else{
         toggleRecommned();

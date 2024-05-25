@@ -19,6 +19,7 @@
               <div class="flex flex-col-reverse w-full">
                 <label for="name">First Name</label>
                 <input
+                v-model="userInformation.firstName"
                   type="text"
                   name=""
                   id=""
@@ -28,6 +29,7 @@
               <div class="flex flex-col-reverse w-full">
                 <label for="name">Last Name</label>
                 <input
+                v-model="userInformation.lastName"
                   type="text"
                   name=""
                   id=""
@@ -44,6 +46,7 @@
                 <label for="name" class="after-content">Email</label>
                 <div class="">
                   <input
+                  v-model="userInformation.email"
                     type="email"
                     name=""
                     id=""
@@ -58,6 +61,7 @@
 
                 <div>
                   <input
+                  v-model="userInformation.phoneNumber"
                     type="text"
                     name=""
                     id=""
@@ -72,6 +76,7 @@
           <div class="space-y-10">
             <h3 class="after-content">Address</h3>
             <input
+            
               type="text"
               name=""
               id=""
@@ -81,6 +86,7 @@
               <div class="flex flex-col-reverse w-full">
                 <label for="name">Street Address</label>
                 <input
+                  v-model="userInformation.address.streetAdressOne"
                   type="text"
                   name=""
                   id=""
@@ -91,6 +97,7 @@
               <div class="flex flex-col-reverse w-full">
                 <label for="name">Street Address Line 2</label>
                 <input
+                v-model="userInformation.address.streetAddressTwo"
                   type="text"
                   name=""
                   id=""
@@ -107,6 +114,7 @@
               <div class="flex flex-col-reverse w-full">
                 <label for="name">City</label>
                 <input
+                v-model="userInformation.address.city"
                   type="text"
                   name=""
                   id=""
@@ -116,6 +124,7 @@
               <div class="flex flex-col-reverse w-full">
                 <label for="name">Town</label>
                 <input
+                v-model="userInformation.address.town"
                   type="text"
                   name=""
                   id=""
@@ -127,6 +136,7 @@
 
           <div>
             <input
+             v-model="userInformation.address.zipCode"
               type="text"
               name=""
               id=""
@@ -138,17 +148,13 @@
           <div class="space-y-10">
             <div>
               <h3 class="after-content">Date Of Birth</h3>
-              <input
-                type="text"
-                name=""
-                id=""
-                class="px-3 py-2 rounded-md border border-gray-600 w-full"
-              />
+              
             </div>
             <div class="w-full flex justify-between gap-x-4">
               <div class="flex flex-col-reverse w-full">
                 <label for="name">Date</label>
                 <input
+                v-model="userInformation.dateOfBirth"
                   type="text"
                   name=""
                   id=""
@@ -159,6 +165,7 @@
               <div class="flex flex-col-reverse w-full">
                 <label for="name">Place Of Birth</label>
                 <input
+                v-model="userInformation.placeOfBirth"
                   type="text"
                   name=""
                   id=""
@@ -171,6 +178,7 @@
           <div>
             <label class="after-content">Gender</label>
             <select
+             v-model="userInformation.gender"
               id="countries"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-4/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
@@ -199,6 +207,7 @@
               here</label
             >
             <input
+            v-model="userInformation.GPS_name_and_address"
               type="text"
               name=""
               id=""
@@ -216,7 +225,9 @@
           </div>
 
           <div class="flex justify-start items-center gap-x-2">
-            <input type="checkbox" name="" id="" class="w-5 h-5 rounded-md" />
+            <input
+            v-model="submitValue"
+            type="checkbox" name="" id="" class="w-5 h-5 rounded-md" />
             <label for="readpolicy"
               >I have read and agree to the term of the
               <a
@@ -236,16 +247,24 @@
 </template>
   
   <script>
+import { ref } from 'vue';
 import { compoentToBeRender } from "../scripts/functional_quiz/renderCompos";
+import userInformation from "../store/auth/userInfo";
 export default {
   name: "AdmissionForm",
   setup() {
+    let submitValue = ref(false);
     const submitData = function () {
-      compoentToBeRender("SubmitDocs");
+      if(submitValue){
+        compoentToBeRender("SubmitDocs");
+      }
+      
     };
     return {
       compoentToBeRender,
       submitData,
+      userInformation,
+      submitValue
     };
   },
 };

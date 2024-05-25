@@ -1,4 +1,4 @@
-export const patientHealthStatus = {
+const patientHealthStatus = {
   primary_motivations_weight: "",
   have_target_weight: "",
   target_weight: "",
@@ -18,3 +18,5 @@ export const patientHealthStatus = {
   ethnic_groups: "",
   BMI_range: "",
 };
+
+export default patientHealthStatus;

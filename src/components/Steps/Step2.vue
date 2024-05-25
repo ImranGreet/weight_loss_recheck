@@ -129,6 +129,8 @@ import { useApplicantHeightWeight } from "../../store/stepTwo";
 import { storeToRefs } from 'pinia';
 import { useApplicantSuffering } from "../../store/step13";
 import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
+import patientHealthStatus from '../../store/patient/health_info';
+
 
   
   export default {
@@ -186,6 +188,8 @@ import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
       };
 
       const submitData = function () {
+        patientHealthStatus.BMI_range=ApplicantBMIRange.value;
+        patientHealthStatus.ethnic_groups=ApplicantRegion;
           if(Applicantheight.value && Applicantweight.value && ApplicantRegion.value && ApplicantBMIRange.value){
             if(ApplicantBMIRange.value ==="between 27.5 - 30" && selectedReasons.value.length>0 && !noneCheck.value ){
               compoentToBeRender("Assesment");
@@ -219,7 +223,8 @@ import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
         BMIresult,
         ApplicantBMIRange,ApplicantRegion,
         store,
-        submitData
+        submitData,
+        patientHealthStatus
       };
     },
   };
