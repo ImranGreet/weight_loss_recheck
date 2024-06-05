@@ -49,6 +49,9 @@
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import {useApplicantSexAndRegion} from "../../store/step5"
 import { storeToRefs } from 'pinia';
+import patientHealthInfo from '../../store/patient/store_patient_info';
+import userInformation from '../../store/auth/userInfo';
+
   
   export default {
     name: "Step5",
@@ -62,10 +65,12 @@ import { storeToRefs } from 'pinia';
 
       const submitData = function () {
         if(sex.value==='female' ){
+          userInformation.gender=sex.value;
 
           compoentToBeRender('Step6');
 
         }else if(sex.value==='male' ){
+          userInformation.gender=sex.value;
           compoentToBeRender('Step8');
         }
         

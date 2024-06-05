@@ -188,8 +188,10 @@ import patientHealthStatus from '../../store/patient/health_info';
       };
 
       const submitData = function () {
+        
         patientHealthStatus.BMI_range=ApplicantBMIRange.value;
         patientHealthStatus.ethnic_groups=ApplicantRegion;
+        patientHealthStatus.current_weight_height=[Applicantheight.value,Applicantweight.value];
           if(Applicantheight.value && Applicantweight.value && ApplicantRegion.value && ApplicantBMIRange.value){
             if(ApplicantBMIRange.value ==="between 27.5 - 30" && selectedReasons.value.length>0 && !noneCheck.value ){
               compoentToBeRender("Assesment");

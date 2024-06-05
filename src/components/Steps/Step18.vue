@@ -57,6 +57,7 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
  
   import {useApplicantAllergicToSpecificDrug} from "../../store/step18"
 import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
+import patientHealthStatus from '../../store/patient/health_info';
   export default {
     name: "Step18",
   
@@ -70,6 +71,7 @@ import { toggleRecommned } from '../../scripts/functional_quiz/recommendation';
           toggleRecommned();
           return ;
         }
+        patientHealthStatus.allergic_to_these=haveAllergy.value;
         compoentToBeRender('Step19');
       };
   

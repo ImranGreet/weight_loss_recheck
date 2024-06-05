@@ -447,13 +447,21 @@
 import { compoentToBeRender } from "../scripts/functional_quiz/renderCompos";
 import userInformation from '../store/auth/userInfo';
 import patientHealthStatus from "../store/patient/health_info";
-
+import useAuthRegistration from "../store/auth/reistration";
 
 export default {
   name: "Preview",
   setup() {
-    const submitData = function () {
-      compoentToBeRender("ThankYou");
+    const useAuthStore = useAuthRegistration();
+    const submitData = async function () {
+      console.log("async start");
+      await useAuthStore.registrationToEvony();
+      console.log("async end");
+       
+        compoentToBeRender("ThankYou");
+       
+       
+      
     };
     return {
       submitData,

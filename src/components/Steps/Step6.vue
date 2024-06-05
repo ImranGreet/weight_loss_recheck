@@ -48,6 +48,7 @@ import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import {usePregnantWomenReport} from "../../store/step6"
 import { storeToRefs } from "pinia";
 import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
+import patientHealthStatus from '../../store/patient/health_info';
   
   export default {
     name: "Step6",
@@ -60,11 +61,13 @@ import { toggleRecommned } from "../../scripts/functional_quiz/recommendation";
       const submitData = function () {
 
         if(pregnacnyOrHaveChild.value ==='yes'){
+          
           toggleRecommned();
           return;
         }
 
         if(pregnacnyOrHaveChild.value ){
+          patientHealthStatus.pregnant_lactic = pregnacnyOrHaveChild.value;
           compoentToBeRender('Step8');
         }else{
           showError.value = true

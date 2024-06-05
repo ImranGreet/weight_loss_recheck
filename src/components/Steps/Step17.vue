@@ -97,6 +97,7 @@ export default {
         pageErrorMarking.value = true;
         return;
       }
+      
       compoentToBeRender('Step20');
     
     };

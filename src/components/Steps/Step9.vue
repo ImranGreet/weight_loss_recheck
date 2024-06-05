@@ -69,6 +69,7 @@
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import {useStatragiesForLosingWeight} from "../../store/step9.js"
 import { storeToRefs } from "pinia";
+import patientHealthStatus from '../../store/patient/health_info';
   
   export default {
     name: "Step9",
@@ -89,6 +90,8 @@ import { storeToRefs } from "pinia";
           pageErrorMarking.value = true;
           return;
         }
+        patientHealthStatus.approaches_methods=selectedReasons.value;
+        console.log(selectedReasons.value,'resonas');
         compoentToBeRender('Step10');
         
         

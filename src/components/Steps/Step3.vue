@@ -49,6 +49,8 @@
 import { compoentToBeRender } from '../../scripts/functional_quiz/renderCompos';
 import { useApplicantTargetWeight } from '../../store/step3';
 import { storeToRefs } from 'pinia';
+import patientHealthStatus from '../../store/patient/health_info';
+
 
 
   
@@ -66,8 +68,10 @@ import { storeToRefs } from 'pinia';
       const submitData = function () {
         
         if(haveTarget.value ==='yes'){
+          patientHealthStatus.have_target_weight=haveTarget.value;
           compoentToBeRender('Step4');
         }else if(haveTarget.value ==='no'){
+          patientHealthStatus.have_target_weight=haveTarget.value;
          compoentToBeRender("Step5");
         }
         
