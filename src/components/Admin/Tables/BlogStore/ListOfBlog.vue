@@ -29,46 +29,9 @@
                   class="px-4 py-3 border border-slate-300">
                   Start From
                 </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  Contact No
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  Emrgency Contact
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  Address
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  SalaryWage
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  Vacation Period
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  Benefits
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  TrainingRecords
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  Notes
-                </th>
+               
+                
+                
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
@@ -78,8 +41,8 @@
             </thead>
             <tbody>
               <tr
-                v-for="(stuff, index) in ourStuff"
-                :key="stuff.id"
+                v-for="(blog, index) in blogs"
+                :key="blog.id"
                 class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                 <th class="w-4 px-4 py-3 border border-slate-300">
                   {{ index + 1 }}
@@ -87,54 +50,21 @@
                 <td class="px-4 py-2 border border-slate-300">
                   <span
                     class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
-                    >{{ stuff.Name }}</span
+                    >{{ blog.blog_title }}</span
                   >
                 </td>
                 <td class="px-4 py-2 border border-slate-300">
                   <span
                     class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
-                    >{{ stuff.Position }}</span
+                    >{{ blog.blog_desc }}</span
                   >
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  <span>{{ stuff.StartDate }}</span>
+                  <span>{{ blog.blog_thumbnail }}</span>
                 </td>
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stuff.ContactInformation }}
-                </td>
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stuff.EmergencyContactInformation }}
-                </td>
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stuff.Address }}
-                </td>
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  $ {{ stuff.SalaryWage }}
-                </td>
-                <td class="px-4 py-2 border border-slate-300">
-                  {{ stuff.VacationTime }}
-                </td>
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  <span>{{ stuff.Benefits }}</span>
-                </td>
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300 flex flex-col gap-y-1">
-                  <span
-                    v-for="(record, index) in stuff.TrainingRecords"
-                    :key="index"
-                    >{{ record }},</span
-                  >
-                </td>
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  <span>{{ stuff.Notes }}</span>
-                </td>
+               
+              
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
                   <button>X</button>
@@ -237,13 +167,27 @@
 </template>
 
 <script>
-import stuff from '../../../../DB/stuff';
+import { storeToRefs } from 'pinia';
+
+import retriveBlogsWay from "../../../../store/Blog/retriveBlogs";
+import { onMounted, ref } from 'vue';
+
 export default {
   name: 'Stuff',
   setup() {
-    const ourStuff = stuff;
+      const {blogRetrive} = storeToRefs(retriveBlogsWay());
+      const store = retriveBlogsWay();
+      const blogs = ref([]);
+      onMounted(async ()=>{
+        let blogsRetrive = await store.retriveBlogsFromDB().data;
+       blogs.value = blogsRetrive
+
+      });
+
     return {
-      ourStuff,
+      blogs,
+      blogRetrive,
+      retriveBlogsWay
     };
   },
 };

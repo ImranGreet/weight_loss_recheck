@@ -85,6 +85,12 @@ const routes = [
         component:()=>import('../Pages/Admin/SubscriptionPage.vue'),
         
       },
+      {
+        path:'blogs',
+        name:'blogs',
+        component:()=>import('../Pages/Admin/Blog/BlogList.vue'),
+        
+      },
       /*auth*/
       
       {

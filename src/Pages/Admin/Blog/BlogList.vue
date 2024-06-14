@@ -1,16 +1,16 @@
 <template>
   <section>
-    <Stuff />
+    <BlogList />
   </section>
 </template>
 
 <script>
-import Stuff from '../../../components/Admin/Tables//Stuff/Stuff.vue';
+import BlogList from '../../../components/Admin/Tables/BlogStore/ListOfBlog.vue';
 
 export default {
   name: 'ProductHouse',
   components: {
-    Stuff,
+    BlogList,
   },
 };
 </script>

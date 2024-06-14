@@ -139,7 +139,7 @@
              v-model="userInformation.address.zipCode"
               type="text"
               name=""
-              id=""
+              id="zipcode"
               class="px-3 py-2 rounded-md border border-gray-600 w-full"
             />
             <h3 class="after-content">Postal Zipcode</h3>
@@ -176,7 +176,7 @@
           </div>
 
           <div>
-            <label class="after-content">Gender</label>
+            <label class="after-content" for="countries">Gender</label>
             <select
              v-model="userInformation.gender"
               id="countries"

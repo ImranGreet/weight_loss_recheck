@@ -81,7 +81,7 @@
           <span></span>
 
           <router-link
-            to="#"
+            :to="{name:`blogs`}"
             class="w-full h-5 flex items-center mb-4"
             :class="{
               'justify-center': !sidebarView,

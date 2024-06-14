@@ -16,7 +16,7 @@
                   name="goalWeight"
                   id="yes"
                   class="px-2 py-3 w-6 h-6 accent-gray-500/20"
-                  v-model="sex"
+                  v-model=sex
                   value="male"
                 />
               </div>
@@ -30,7 +30,7 @@
                   name="goalWeight"
                   id="yes"
                   class="px-2 py-3 w-6 h-6 accent-gray-500/20"
-                  v-model="sex"
+                  v-model=sex
                   value="female"
                 />
               </div>
