@@ -2,29 +2,30 @@ import { defineStore } from "pinia";
 import axios from "axios";
 import { ref } from "vue";
 
- const retriveBlogsWay = defineStore("retriveBlogs", () => {
-  let alertMessage = ref(null);
-  const retriveBlogsFromDB = async function () {
-    const blogRetrive = await axios.get(
-      "https://backendevony.evony.me/api/admin/get_blogs",
-      
-    );
-     console.log(blogRetrive);
-    
-    
-    if (blogRetrive) {
-      alertMessage = "Patient info keeping is succesfull";
-      
+const useBlogStore = defineStore("blogStore", () => {
+  const alertMessage = ref(null);
+  const blogs = ref([]);
 
-    } else {
-      alertMessage = "Something is missing";
+  const retrieveBlogsFromDB = async () => {
+    try {
+      const response = await axios.get("https://backendevony.evony.me/api/admin/get_blogs");
+      blogs.value = response.data.blogs;
+
+      if (response.data.length > 0) {
+        alertMessage.value = "Blogs retrieved successfully";
+      } else {
+        alertMessage.value = "No blogs found";
+      }
+    } catch (error) {
+      alertMessage.value = "Error retrieving blogs";
     }
   };
 
   return {
-    retriveBlogsFromDB,
-    
+    retrieveBlogsFromDB,
+    blogs,
+    alertMessage,
   };
 });
 
-export default retriveBlogsWay;
+export default useBlogStore;

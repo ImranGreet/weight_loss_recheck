@@ -9,23 +9,31 @@ const useBlogStore = defineStore("blogStore", () => {
   const retrieveBlogsFromDB = async () => {
     try {
       const response = await axios.get("https://backendevony.evony.me/api/admin/get_blogs");
-      blogs.value = response.data; // Assuming the API response contains the blogs array
-      alertMessage.value = "Blogs retrieved successfully!";
+      blogs.value = response.data.blogs;
+
+      if (response.data.length > 0) {
+        alertMessage.value = "Blogs retrieved successfully";
+      } else {
+        alertMessage.value = "No blogs found";
+      }
     } catch (error) {
-      alertMessage.value = "Failed to retrieve blogs.";
-      console.error(error);
+      alertMessage.value = "Error retrieving blogs";
     }
   };
 
   const deleteBlog = async (id) => {
-    try {
-      await axios.delete(`https://backendevony.evony.me/api/admin/deleteBlog/${id}`);
-      blogs.value = blogs.value.filter(blog => blog.id !== id); // Remove the deleted blog from the local state
-      alertMessage.value = "Blog deleted successfully!";
-    } catch (error) {
-      alertMessage.value = "Failed to delete blog.";
-      console.error(error);
+    let confirm = window.confirm("Are You Sure To Delete It ?");
+    if(confirm){
+      try {
+        await axios.delete(`https://backendevony.evony.me/api/admin/deleteBlog/${id}`);
+        blogs.value = blogs.value.filter(blog => blog.id !== id); // Remove the deleted blog from the local state
+        alertMessage.value = "Blog deleted successfully!";
+      } catch (error) {
+        alertMessage.value = "Failed to delete blog.";
+        console.error(error);
+      }
     }
+    
   };
 
   const createBlog = async (blogData, headers = {}) => {

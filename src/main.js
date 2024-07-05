@@ -36,6 +36,8 @@ import {
   faUsers,
   faStapler,
   faImage,
+  faTrash,
+  faPenToSquare
   
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -78,7 +80,9 @@ library.add(
   faNewspaper,
   faStapler,
   faImage,
-  faServicestack
+  faServicestack,
+  faTrash,
+  faPenToSquare
 );
 
 const pinia = createPinia();
