@@ -5,10 +5,13 @@ import { ref } from "vue";
 const useBlogStore = defineStore("blogStore", () => {
   const alertMessage = ref(null);
   const blogs = ref([]);
+  const singleBlog = ref("");
 
   const retrieveBlogsFromDB = async () => {
     try {
-      const response = await axios.get("https://backendevony.evony.me/api/admin/get_blogs");
+      const response = await axios.get(
+        "https://backendevony.evony.me/api/admin/get_blogs"
+      );
       blogs.value = response.data.blogs;
 
       if (response.data.length > 0) {
@@ -23,22 +26,27 @@ const useBlogStore = defineStore("blogStore", () => {
 
   const deleteBlog = async (id) => {
     let confirm = window.confirm("Are You Sure To Delete It ?");
-    if(confirm){
+    if (confirm) {
       try {
-        await axios.delete(`https://backendevony.evony.me/api/admin/deleteBlog/${id}`);
-        blogs.value = blogs.value.filter(blog => blog.id !== id); // Remove the deleted blog from the local state
+        await axios.delete(
+          `https://backendevony.evony.me/api/admin/deleteBlog/${id}`
+        );
+        blogs.value = blogs.value.filter((blog) => blog.id !== id); // Remove the deleted blog from the local state
         alertMessage.value = "Blog deleted successfully!";
       } catch (error) {
         alertMessage.value = "Failed to delete blog.";
         console.error(error);
       }
     }
-    
   };
 
   const createBlog = async (blogData, headers = {}) => {
     try {
-      await axios.post("https://backendevony.evony.me/api/admin/createBlog", blogData, { headers });
+      await axios.post(
+        "https://backendevony.evony.me/api/admin/createBlog",
+        blogData,
+        { headers }
+      );
       await retrieveBlogsFromDB(); // Refresh the list of blogs after creating a new blog
       alertMessage.value = "Blog created successfully!";
     } catch (error) {
@@ -47,9 +55,28 @@ const useBlogStore = defineStore("blogStore", () => {
     }
   };
 
+  const getsblogById = async (id) => {
+    try {
+      const response = await axios.get(
+        `https://backendevony.evony.me/api/admin/getblog/${id}`
+      );
+
+      singleBlog.value = response.data.blog;
+      
+      await retrieveBlogsFromDB(); // Refresh the list of blogs after updating the blog
+      alertMessage.value = "Blog reteived successfully!";
+    } catch (error) {
+      alertMessage.value = "Failed to get blog.";
+      console.error(error);
+    }
+  };
   const updateBlog = async (id, blogData, headers = {}) => {
     try {
-      await axios.put(`https://backendevony.evony.me/api/admin/updateBlog/${id}`, blogData, { headers });
+      await axios.put(
+        `https://backendevony.evony.me/api/admin/updateBlog/${id}`,
+        blogData,
+        { headers }
+      );
       await retrieveBlogsFromDB(); // Refresh the list of blogs after updating the blog
       alertMessage.value = "Blog updated successfully!";
     } catch (error) {
@@ -64,7 +91,8 @@ const useBlogStore = defineStore("blogStore", () => {
     retrieveBlogsFromDB,
     deleteBlog,
     createBlog,
-    updateBlog
+    updateBlog,
+    getsblogById,
   };
 });
 

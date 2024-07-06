@@ -5,7 +5,9 @@
         class="w-full relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg"
       >
        <div class="flex justify-center items-center p-4">
-        <button class="bg-blue-600 text-white rounded-md px-2 py-1">Create New Blog</button>
+        <button 
+        @click="createBlogModal()"
+        class="bg-blue-600 text-white rounded-md px-2 py-1">Create New Blog</button>
        </div>
         <div class="overflow-x-auto sticky">
           <table
@@ -34,8 +36,8 @@
             </thead>
             <tbody>
               <tr
-                v-for="(blog, index) in blogs"
-                :key="blog.id"
+                v-for="(slider, index) in sliders"
+                :key="slider.id"
                 class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <th class="w-4 px-4 py-3 border border-slate-300">
@@ -44,23 +46,23 @@
                 <td class="px-4 py-2 border border-slate-300">
                   <span
                     class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
-                    >{{ blog.blog_title }}</span
+                    >{{ slider.slider_title }}</span
                   >
                 </td>
 
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300"
                 >
-                  <span>{{ blog.blog_thumbnail }}</span>
+                  <span>{{ slider.slider_thumbnail }}</span>
 
                   <span>
-                    <img :src="blog.blog_thumbnail" alt="" />
+                    <img :src="slider.slider_thumbnail" alt="" />
                   </span>
                 </td>
                 <td class="px-4 py-2 border border-slate-300">
                   <span
                     class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
-                    >{{ blog.blog_desc }}</span
+                    >{{ slider.slider_desc }}</span
                   >
                 </td>
                 <td
@@ -68,12 +70,12 @@
                 >
                   <button
                     class="text-red-600 hover:text-red-800"
-                    @click="deleteBlogFromDb(blog.id)"
+                    @click="deleteBlogFromDb(slider.id)"
                   >
                     <font-awesome-icon :icon="['fas', 'trash']" />
                   </button>
                   <button
-                  @click="openModalInView(blog.id,blog)"
+                  @click="openModalInView(blog.id)"
                    class="text-blue-600 hover:text-blue-800">
                     <font-awesome-icon :icon="['fas', 'pen-to-square']" />
                   </button>
@@ -182,7 +184,10 @@
 
   
     <div v-if="openModal">
-      <globalModal :singleBlog="singleBlog" />
+      <globalModal />
+    </div>
+    <div v-if="createModal">
+      <createResourceModal />
     </div>
   </section>
 </template>
@@ -190,51 +195,55 @@
 <script>
 import { storeToRefs } from "pinia";
 import { onMounted, onUnmounted, ref } from "vue";
-import useBlogStore from "../../../../store/Blog/blogOperation";
+import useSliderResource from "../../../../store/slider/sliderOperation";
 import { PencilIcon } from "@heroicons/vue/24/solid";
 import globalModal from "../../Modal/globalModal.vue";
-import { openModal } from "../../../../scripts/Global/modal";
+import { openModal,createModal } from "../../../../scripts/Global/modal";
+import createResourceModal from '../../Modal/createResourceModal.vue';
+
+
 
 export default {
   name: "BlogsStore",
   components: {
     PencilIcon,
     globalModal,
+    createResourceModal
   },
   setup() {
-    const blogStore = useBlogStore();
-    const { retrieveBlogsFromDB, deleteBlog, createBlog, updateBlog ,getsblogById} =
-      blogStore;
+    const sliderStore = useSliderResource();
+    const { sliders,createSlider,updateSlider,selectedFile,sliderDescription, retrieveSliderFromDB} = storeToRefs(blogStore);
 
-    const { blogs } = storeToRefs(blogStore);
-    const singleBlog = ref("");
+    
+    const retrieveBlog = ref(null);
 
     onMounted(async () => {
-      await retrieveBlogsFromDB();
+      await sliderStore.retrieveSliderFromDB();
     });
     const deleteBlogFromDb = async function (id) {
-      await getsblogById(id);
       await deleteBlog(id);
     };
 
-
-
-    const openModalInView =async function (id,blog) {
-      await getsblogById(id);
-      singleBlog.value = blog;
+    const openModalInView = function (id) {
       openModal.value = !openModal.value;
     };
+    const createBlogModal = function(){
+      createModal.value = !createModal.value;
+    }
     onUnmounted(() => {
       openModal.value = false;
     });
+    onUnmounted(() => {
+      createModal.value = false;
+    });
     return {
-      blogs,
-      deleteBlogFromDb,
+      sliders,
+     
       openModal,
-      getsblogById,
+      createModal,
+      retrieveSliderFromDB,
+    
       openModalInView,
-      singleBlog
-      
     };
   },
 };

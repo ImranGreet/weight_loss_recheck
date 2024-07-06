@@ -12,6 +12,7 @@
               >Title</label
             >
             <input
+              v-model="blog_title"
               type="text"
               id="title"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -24,6 +25,7 @@
               >Content</label
             >
             <textarea
+              v-model="blog_desc"
               id="content"
               rows="5"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -41,7 +43,7 @@
           </div>
         </form>
         <button
-          @click="closeModal()"
+          @click="closeModal"
           class="absolute top-1 right-1 bg-red-500 px-1 py-0.5 rounded-md"
         >
           X
@@ -51,19 +53,35 @@
   </section>
 </template>
 
-<script>
-import { openModal } from "../../../scripts/Global/modal";
-export default {
-  setup() {
-    const closeModal = function () {
-      openModal.value = false;
-    };
-    return {
-      closeModal,
-    };
-  },
+<script setup>
+import { ref, defineProps } from 'vue';
+import { openModal } from '../../../scripts/Global/modal';
+
+// Define and validate props
+const props = defineProps({
+  singleBlog: {
+    type: Object,
+    required: true,
+    validator: (value) => {
+      return value && typeof value === 'object' && 'blog_title' in value && 'blog_desc' in value;
+    }
+  }
+});
+
+// Create reactive references to the props
+const blog_title = ref(props.singleBlog.blog_title);
+const blog_desc = ref(props.singleBlog.blog_desc);
+
+const closeModal = () => {
+  openModal.value = false;
+};
+
+const submitForm = () => {
+  // Your form submission logic here
+  console.log('Form submitted with:', { blog_title: blog_title.value, blog_desc: blog_desc.value });
 };
 </script>
 
-<style>
+<style scoped>
+/* Your styles here */
 </style>
