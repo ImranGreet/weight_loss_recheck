@@ -39,7 +39,7 @@ const useHomePageResources = defineStore("homePageResourcesStore", () => {
       const response = await axios.get(
         "https://backendevony.evony.me/api/getBlogs"
       );
-      homePageBlogs.value = response.data; // Assuming the API response contains the homeImages array
+      homePageBlogs.value = response.data.blogs; // Assuming the API response contains the homeImages array
       alertMessage.value = "Home images retrieved successfully!";
     } catch (error) {
       alertMessage.value = "Failed to retrieve home images.";
