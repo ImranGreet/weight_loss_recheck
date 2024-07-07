@@ -3,71 +3,30 @@
     <div class="px-4 mx-auto w-full">
       <div
         class="w-full relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
-        <ShowButton
-          @click="searchFormShower()"
-          class="my-3 ml-2"
-          :class="{ inline: !searchForm, hidden: searchForm }"
-          >Search</ShowButton
-        >
-
         <div
-          class="w-full flex-col py-3 bg-gary-800/50 lg:bg-gray-600/50 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4 relative"
-          :class="{ flex: searchForm, hidden: !searchForm }">
-          <div
-            class="w-full lg:w-4/5 mx-auto border border-pink-500/30 rounded-lg py-5 px-5 shadow-sm shadow-white">
-            <form
-              class="w-full flex flex-col lg:flex-row justify-between items-center gap-y-3 gap-x-0 lg:gap-x-3 lg:gap-y-0">
-              <div class="space-y-2 w-full lg:w-auto">
-                <label
-                  for="start_date"
-                  class="text-white"
-                  >Start Date</label
-                >
-                <input
-                  type="date"
-                  name=""
-                  id=""
-                  class="w-full focus:outline-none px-4 py-2" />
-              </div>
-              <div class="space-y-2 w-full lg:w-auto">
-                <label
-                  for="start_date"
-                  class="text-white"
-                  >Start Date</label
-                >
-                <input
-                  type="date"
-                  name=""
-                  id=""
-                  class="w-full focus:outline-none px-4 py-2" />
-              </div>
-              <div class="space-y-2 w-full lg:w-auto">
-                <label
-                  for="start_date"
-                  class="text-white"
-                  >Category</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id=""
-                  class="w-full focus:outline-none px-4 py-2" />
-              </div>
-              <div class="space-y-2 w-full lg:w-auto">
-                <TableButton
-                  class="w-full mt-auto lg:mt-8 lg:w-auto bg-blue-600 text-white"
-                  >Search</TableButton
-                >
-              </div>
-            </form>
-          </div>
-          <button
-            @click="searchFormShower()"
-            class="w-8 h-8 flex flex-col justify-center items-center absolute top-2 right-2 text-white bg-red-500 rounded-full">
-            X
-          </button>
+          class="flex flex-col bg-gray-400/50 lg:flex-row lg:items-center lg:justify-between py-4 px-6">
+          <TableCard
+            heading=" Total Expense Types"
+            :amount="450"
+            class="text-gray-950 bg-white/50">
+            <CalculatorIcon
+              class="w-12 h-12 border border-pink-200 rounded-md p-2" />
+          </TableCard>
+          <TableCard
+            heading=" Total Expense Types"
+            :amount="450"
+            class="text-gray-950 bg-white/50">
+            <CalculatorIcon
+              class="w-12 h-12 border border-pink-200 rounded-md p-2" />
+          </TableCard>
+          <TableCard
+            heading=" Total Expense Types"
+            :amount="450"
+            class="text-gray-950 bg-white/50">
+            <CalculatorIcon
+              class="w-12 h-12 border border-pink-200 rounded-md p-2" />
+          </TableCard>
         </div>
-
         <div class="overflow-x-auto">
           <table
             class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border border-slate-400">
@@ -82,32 +41,37 @@
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Order No
+                  Category
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Order Items
+                  Note
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Order_type
+                  Amount
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Payment Methods
+                  FixedVariable
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Status
+                  PaymentMethod
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Time Placed
+                  Description
+                </th>
+                <th
+                  scope="col"
+                  class="px-4 py-3 border border-slate-300">
+                  Date
                 </th>
 
                 <th
@@ -119,8 +83,8 @@
             </thead>
             <tbody>
               <tr
-                v-for="(order, index) in orderList"
-                :key="index"
+                v-for="(type, index) in typesOfExpenses"
+                :key="type.id"
                 class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                 <th class="w-4 px-4 py-3 border border-slate-300">
                   {{ index + 1 }}
@@ -128,48 +92,38 @@
                 <td class="px-4 py-2 border border-slate-300">
                   <span
                     class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
-                    >{{ order.order_number }}</span
+                    >{{ type.ExpenseCategory }}</span
                   >
                 </td>
                 <td class="px-4 py-2 border border-slate-300">
-                  <div
-                    class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
-                    <div class="w-full flex flex-col gap-y-2">
-                      <div
-                        v-for="(item, index) in order.items_ordered"
-                        :key="index">
-                        <div class="flex justify-start space-x-2">
-                          <img
-                            :src="item.image"
-                            alt=""
-                            class="w-6 h-6 rounded-lg" />
-                          <p>{{ item.id }}</p>
-                          <p>{{ item.category }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <span
+                    class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
+                    >{{ type.Notes }}</span
+                  >
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
                   <div class="flex items-center">
-                    {{ order.order_type }}
+                    $
+                    {{ type.Amount }}
                   </div>
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ order.payment_method }}
+                  {{ type.FixedVariable }}
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ order.order_status }}
+                  <span>{{ type.PaymentMethod }}</span>
                 </td>
-
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ order.time_placed }}
+                  <span>{{ type.Description }}</span>
                 </td>
-
+                <td
+                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
+                  <span>{{ type.Date }}</span>
+                </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
                   Delete
@@ -272,27 +226,20 @@
 </template>
 
 <script>
-import TableButton from '../../../Utilities/actionButtons/TableButton.vue';
-import Orderdata from '../../../../DB/order';
-import {
-  searchForm,
-  searchFormShower,
-} from '../../../../scripts/Admin/utility/form';
-import { onUnmounted } from 'vue';
+import { CalculatorIcon } from '@heroicons/vue/24/outline';
+import TableCard from '../../../Utilities/TableCard.vue';
+import expenseTypes from '../../../../DB/expenseTypes';
+
 export default {
-  name: 'OrderList',
+  name: 'Expense Types',
   components: {
-    TableButton,
+    TableCard,
+    CalculatorIcon,
   },
   setup() {
-    onUnmounted(() => {
-      searchForm.value = false;
-    });
-    const orderList = Orderdata;
+    const typesOfExpenses = expenseTypes;
     return {
-      searchForm,
-      orderList,
-      searchFormShower,
+      typesOfExpenses,
     };
   },
 };

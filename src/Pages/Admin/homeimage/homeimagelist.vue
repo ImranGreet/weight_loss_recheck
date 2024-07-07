@@ -1,16 +1,16 @@
 <template>
   <section>
-    <Transaction />
+    <Homeimagelist />
   </section>
 </template>
 
 <script>
-import Transaction from '../../../components/Admin/Tables/Accounce/Transaction.vue';
+import Homeimagelist from '../../../components/Admin/Tables/homeimage/homeimages.vue';
 
 export default {
   name: 'ExpenseHouse',
   components: {
-    Transaction,
+    Homeimagelist,
   },
 };
 </script>

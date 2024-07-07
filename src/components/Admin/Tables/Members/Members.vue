@@ -3,110 +3,10 @@
     <div class="px-4 mx-auto w-full">
       <div
         class="w-full relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
-        <div
-          class="w-full flex flex-col px-4 py-3 bg-gray-400/50 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
-          <div class="flex flex-col items-center">
-            <div class="dark:bg-gray-900 rounded-lg">
-              <label
-                for="table-search"
-                class="sr-only"
-                >Search</label
-              >
-              <div class="relative mt-1">
-                <div
-                  class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                  <svg
-                    class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20">
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  class="block px-12 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:outline-none"
-                  placeholder="Search for items" />
-              </div>
-            </div>
-          </div>
+      
 
-          <div
-            class="flex flex-col xl:flex-row gap-x-4 text-white bg-blue-700 px-4 py-1.5 rounded-lg">
-            <h5 class="space-x-1">
-              <span>All Products</span>
-              <span>:</span>
-              <span> 123456</span>
-            </h5>
-            <div class="bg-white w-1"></div>
-            <h5 class="space-x-1">
-              <span>Total sales</span>
-              <span>:</span>
-              <span>$88.4k</span>
-            </h5>
-          </div>
-          <div
-            class="flex flex-col flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
-            <router-link
-              :to="{ name: 'insert_product' }"
-              class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-lime-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-              <svg
-                class="h-3.5 w-3.5 mr-2"
-                fill="currentColor"
-                viewbox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true">
-                <path
-                  clip-rule="evenodd"
-                  fill-rule="evenodd"
-                  d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-              </svg>
-              Add new product
-            </router-link>
-            <button
-              type="button"
-              class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-white bg-red-600 border border-gray-200 rounded-lg focus:outline-none focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-              <svg
-                class="w-4 h-4 mr-2"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                fill="none"
-                viewbox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-              </svg>
-              Update stocks 1/250
-            </button>
-            <button
-              type="button"
-              class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-white bg-gray-800 border border-gray-200 rounded-lg focus:outline-none focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-              <svg
-                class="w-4 h-4 mr-2"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewbox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                aria-hidden="true">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-              </svg>
-              Export
-            </button>
-          </div>
-        </div>
+        
+
         <div class="overflow-x-auto">
           <table
             class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border border-slate-400">
@@ -121,58 +21,44 @@
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Product Title
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
                   Category
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  ReorderPoint
+                  Amount
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Quantity In Hand
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300 break-words">
-                  MinimumOrderQuantity
+                  Payment Methods
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  LeadTime
+                  Vendor
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  PreferredSupplier
+                  Currency
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  IngredientUse
+                  Description
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  ExpirationDate
+                  Recipet Attach
                 </th>
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
-                  Location
+                  Date
                 </th>
-                <th
-                  scope="col"
-                  class="px-4 py-3 border border-slate-300">
-                  Notes
-                </th>
+
                 <th
                   scope="col"
                   class="px-4 py-3 border border-slate-300">
@@ -182,67 +68,58 @@
             </thead>
             <tbody>
               <tr
-                v-for="(stock, index) in availableStocks"
-                :key="index"
+                v-for="(expense, index) in expensesToShow"
+                :key="expense.id"
                 class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                 <th class="w-4 px-4 py-3 border border-slate-300">
                   {{ index + 1 }}
                 </th>
                 <td class="px-4 py-2 border border-slate-300">
                   <span
-                    class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
-                    {{ stock.ItemName }}</span
+                    class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
+                    >{{ expense.category }}</span
                   >
                 </td>
+
                 <td class="px-4 py-2 border border-slate-300">
                   <span
                     class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
-                    >{{ stock.Category }}</span
+                    >{{ expense.amount }}</span
                   >
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
                   <div class="flex items-center">
-                    {{ stock.ReorderPoint }}
+                    <div
+                      class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
+                    {{ expense.paymentMethod }}
                   </div>
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stock.QuantityOnHand }}
+                  {{ expense.vendor }}
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stock.MinimumOrderQuantity }}
+                  {{ expense.currency }}
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stock.LeadTime }}
+                  <div class="flex items-center">
+                    {{ expense.description }}
+                  </div>
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stock.PreferredSupplier }}
-                </td>
-                <td class="px-4 py-2 border border-slate-300">
-                  <span v-if="stock.IngredientUse === true">Yes</span>
+                  <span v-if="expense.receiptAttached == true">Yes</span>
                   <span v-else>No</span>
                 </td>
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stock.ExpirationDate }}
-                </td>
-
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stock.Location }}
+                <td class="px-4 py-2 border border-slate-300">
+                  {{ expense.date }}
                 </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  {{ stock.Notes }}
-                </td>
-
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300">
-                  Delete
+                  <button>X</button>
                 </td>
               </tr>
             </tbody>
@@ -342,16 +219,98 @@
 </template>
 
 <script>
-import stocks from '../../../../DB/stocks.json';
+import { onMounted, onUnmounted, ref } from 'vue';
+import TableButton from '../../../Utilities/actionButtons/TableButton.vue';
+import {
+  searchForm,
+  searchFormShower,
+} from '../../../../scripts/Admin/utility/form';
+
+import Expenses from '../../../../DB/expense';
+
+import {
+  currentDate as startDate,
+  lastdate as endDate,
+} from '../../../../scripts/Global/DateYearMonth/date';
+
 export default {
-  name: 'StocksItem',
+  name: 'Expenses',
+  components: {
+    TableButton,
+  },
   setup() {
-    const availableStocks = stocks;
+    let expensesToShow = ref([]);
+
+    onUnmounted(() => {
+      searchForm.value = false;
+    });
+
+    onMounted(() => {
+      expensesToShow.value = Expenses;
+    });
+
+    let expenses = Expenses;
+
+    const paymentMethods = new Set(expenses.map(cat => cat.paymentMethod));
+    const arrayofMethods = Array.from(paymentMethods);
+
+    const selectedPaymentOption = ref('');
+
+    const currentDate = ref(startDate);
+    const lastdate = ref(endDate);
+
+    const filterProducts = function (startDate, endDate, paymentMethod) {
+      const filteredProducts = expenses.filter(expense => {
+        const isWithinDateRange =
+          expense.date >= startDate && expense.date <= endDate
+            ? expense.paymentMethod.toLowerCase() ===
+              paymentMethod.toLowerCase()
+            : true;
+        const hasSelectedPaymentMethod =
+          !selectedPaymentOption.value ||
+          expense.paymentMethod.toLowerCase() ===
+            selectedPaymentOption.value.toLowerCase();
+
+        return isWithinDateRange && hasSelectedPaymentMethod;
+      });
+
+      expensesToShow.value = filteredProducts;
+    };
+    const submitForm = function () {
+      filterProducts(
+        currentDate.value,
+        lastdate.value,
+        selectedPaymentOption.value,
+      );
+    };
+
     return {
-      availableStocks,
+      searchForm,
+      expenses,
+      currentDate,
+      lastdate,
+      expensesToShow,
+      startDate,
+      endDate,
+      /*categories*/
+      arrayofMethods,
+      selectedPaymentOption,
+      searchFormShower,
+      filterProducts,
+      submitForm,
     };
   },
 };
 </script>
 
-<style></style>
+<style>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>
