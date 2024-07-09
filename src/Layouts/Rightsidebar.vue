@@ -104,7 +104,7 @@
           <span></span>
 
           <router-link
-            to="#"
+            :to="{name:`sliderhouse`}"
             class="w-full h-5 flex items-center mb-4"
             :class="{
               'justify-center': !sidebarView,
@@ -120,7 +120,7 @@
                 'inline-block text-xl ml-5': !sidebarView,
                 hidden: sidebarView,
               }"
-              >Testimonial</span
+              >Sliders</span
             >
           </router-link>
           <span></span>

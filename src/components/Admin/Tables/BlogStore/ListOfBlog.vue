@@ -64,9 +64,11 @@
                   >
                 </td>
                 <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300 flex gap-x-2 justify-center items-center"
+                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300 "
                 >
-                  <button
+                 
+                  <div class="flex gap-x-2 justify-center items-center">
+                    <button
                     class="text-red-600 hover:text-red-800"
                     @click="deleteBlogFromDb(blog.id)"
                   >
@@ -77,6 +79,12 @@
                    class="text-blue-600 hover:text-blue-800">
                     <font-awesome-icon :icon="['fas', 'pen-to-square']" />
                   </button>
+                  <button
+                  
+                   class="text-green-600 hover:text-green-800">
+                   <font-awesome-icon icon="fa-solid fa-shield" />
+                  </button>
+                  </div>
                 </td>
               </tr>
             </tbody>

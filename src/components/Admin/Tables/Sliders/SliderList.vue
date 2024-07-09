@@ -16,57 +16,48 @@
                   Sr No
                 </th>
                 <th scope="col" class="px-4 py-3 border border-slate-300">
-                  Title
+                  Product Title
                 </th>
+
                 <th scope="col" class="px-4 py-3 border border-slate-300">
-                  Thumbnail
+                  Product Thumbnail
                 </th>
                 <th scope="col" class="px-4 py-3 border border-slate-300">
                   Description
                 </th>
 
-                <th scope="col" class="px-4 py-3 border border-slate-300 text-center">
+                <th scope="col" class="px-4 py-3 border border-slate-300">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr
-                v-for="(expense, index) in expensesToShow"
-                :key="expense.id"
                 class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <th class="w-4 px-4 py-3 border border-slate-300">
-                  {{ index + 1 }}
-                </th>
+                <th class="w-4 px-4 py-3 border border-slate-300">1</th>
                 <td class="px-4 py-2 border border-slate-300">
                   <span
                     class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
-                    >{{ expense.category }}</span
-                  >
+                    >category
+                  </span>
+                </td>
+                <td class="px-4 py-2 border border-slate-300">
+                  <span
+                    class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
+                    >category
+                  </span>
+                </td>
+                <td class="px-4 py-2 border border-slate-300">
+                  <span
+                    class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
+                    >category
+                  </span>
                 </td>
 
-                <td class="px-4 py-2 border border-slate-300">
-                  <span
-                    class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300"
-                    >{{ expense.amount }}</span
-                  >
-                </td>
                 <td
                   class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300"
                 >
-                  <div class="flex items-center">
-                    <div
-                      class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"
-                    ></div>
-                    {{ expense.paymentMethod }}
-                  </div>
-                </td>
-
-                <td
-                  class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-300 "
-                >
-                  
                   <div class="flex gap-x-2 justify-center items-center">
                     <button class="text-red-600 hover:text-red-800">
                       <font-awesome-icon :icon="['fas', 'trash']" />
@@ -83,6 +74,7 @@
             </tbody>
           </table>
         </div>
+
         <nav
           class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0"
           aria-label="Table navigation"
@@ -184,104 +176,12 @@
 </template>
 
 <script>
-import { onMounted, onUnmounted, ref } from "vue";
-import TableButton from "../../../Utilities/actionButtons/TableButton.vue";
-import {
-  searchForm,
-  searchFormShower,
-} from "../../../../scripts/Admin/utility/form";
-
-import Expenses from "../../../../DB/expense";
-
-import {
-  currentDate as startDate,
-  lastdate as endDate,
-} from "../../../../scripts/Global/DateYearMonth/date";
-import axios from "axios";
-
 export default {
-  name: "Expenses",
-  components: {
-    TableButton,
-  },
+  name: "SliderList",
   setup() {
-    let expensesToShow = ref([]);
-
-    onUnmounted(() => {
-      searchForm.value = false;
-    });
-
-    onMounted(() => {
-      expensesToShow.value = Expenses;
-    });
-
-    let expenses = Expenses;
-
-    const paymentMethods = new Set(expenses.map((cat) => cat.paymentMethod));
-    const arrayofMethods = Array.from(paymentMethods);
-
-    const selectedPaymentOption = ref("");
-
-    const currentDate = ref(startDate);
-    const lastdate = ref(endDate);
-
-    const filterProducts = function (startDate, endDate, paymentMethod) {
-      const filteredProducts = expenses.filter((expense) => {
-        const isWithinDateRange =
-          expense.date >= startDate && expense.date <= endDate
-            ? expense.paymentMethod.toLowerCase() ===
-              paymentMethod.toLowerCase()
-            : true;
-        const hasSelectedPaymentMethod =
-          !selectedPaymentOption.value ||
-          expense.paymentMethod.toLowerCase() ===
-            selectedPaymentOption.value.toLowerCase();
-
-        return isWithinDateRange && hasSelectedPaymentMethod;
-      });
-
-      expensesToShow.value = filteredProducts;
-    };
-    const submitForm = function () {
-      filterProducts(
-        currentDate.value,
-        lastdate.value,
-        selectedPaymentOption.value
-      );
-    };
-
-    onMounted(async () => {
-      let homeImages = await axios.get("api/admin/home_images_store");
-      console.log(homeImages);
-    });
-
-    return {
-      searchForm,
-      expenses,
-      currentDate,
-      lastdate,
-      expensesToShow,
-      startDate,
-      endDate,
-      /*categories*/
-      arrayofMethods,
-      selectedPaymentOption,
-      searchFormShower,
-      filterProducts,
-      submitForm,
-    };
+    return {};
   },
 };
 </script>
 
-<style>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-</style>
+<style></style>

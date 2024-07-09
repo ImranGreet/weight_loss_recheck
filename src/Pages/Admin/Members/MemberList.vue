@@ -1,16 +1,16 @@
 <template>
   <section>
-    <Expenses />
+    <Members />
   </section>
 </template>
 
 <script>
-import Expenses from '../../../components/Admin/Tables/Expense/Expenses.vue';
+import Members from '../../../components/Admin/Tables/Members/Memberlist.vue';
 
 export default {
   name: 'ExpenseHouse',
   components: {
-    Expenses,
+    Members,
   },
 };
 </script>
