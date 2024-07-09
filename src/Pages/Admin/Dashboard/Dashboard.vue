@@ -8,33 +8,29 @@
     </div>
     <!-- report annual -->
     <div
-      class="w-full flex flex-col lg:flex-row justify-between items-center  shadow-sm  lg:gap-x-3">
-      <div class="w-full xl:w-full ">
+      class="w-full flex flex-col lg:flex-row justify-between items-center shadow-sm lg:gap-x-3"
+    >
+      <div class="w-full xl:w-full">
         <IncomeExpenseMonthlyReport />
       </div>
-      
     </div>
-    
-    
   </div>
 </template>
 
 <script>
-import MonthlyIncome from '../../../components/Admin/Graph/MonthlyIncome.vue';
-import TotalSales from '../../../components/Admin/Graph/TotalSales.vue';
-import IncomeExpenseMonthlyReport from '../../../components/Admin/Report/IncomeExpenseMonthlyReport.vue';
-import LastMonthReport from '../../../components/Admin/Report/LastMonthReport.vue';
-import CurrentWebOrder from '../../../components/Admin/Tables/Products/CurrentWebOrder.vue';
-import TopSellingProducts from '../../../components/Admin/Tables/Products/TopSellingProducts.vue';
+import MonthlyIncome from "../../../components/Admin/Graph/MonthlyIncome.vue";
+import TotalSales from "../../../components/Admin/Graph/TotalSales.vue";
+import IncomeExpenseMonthlyReport from "../../../components/Admin/Report/IncomeExpenseMonthlyReport.vue";
+import LastMonthReport from "../../../components/Admin/Report/LastMonthReport.vue";
 
 export default {
-  name: 'Dashboard',
+  name: "Dashboard",
   components: {
     MonthlyIncome,
     LastMonthReport,
-    TopSellingProducts,
+
     TotalSales,
-    CurrentWebOrder,
+
     IncomeExpenseMonthlyReport,
   },
   setup() {
